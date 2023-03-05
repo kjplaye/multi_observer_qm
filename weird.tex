@@ -28,10 +28,10 @@ If you ask a physicist on the street what kinds of things are uniquely quantum m
 \item entanglement
 \item wave function collapse
 \item the measurement problem
-\item exponential dimensions
+\item tensor product of ensembles
 \end{enumerate}
 
-Entanglement is surely a uniquely quantum item with no classical analog.  The wave function collapsing is according to Penrose \cite{penrose}, an unsettlingly nonlinear mystery.  The measurement problem is aptly named.  And unlike the classical case, 8 qbits require 256 dimensions, not just 8.
+Entanglement is surely a uniquely quantum item with no classical analog.  The wave function collapsing is according to Penrose \cite{penrose}, an unsettlingly nonlinear mystery.  The measurement problem is aptly named.  And unlike the classical ensembles, 8 qbits require 256 dimensions, not just 8.
 
 \section{Some Thoughts}
 With 8 coins in hand, we start some thought experiments.
@@ -48,7 +48,7 @@ We want to describe a general knowledge statement about the coins.  This will ac
 \[
    p_0,\cdots,p_{255} \in \mathbb{R}^+
 \]
-with $\sum p_i = 1$.  Each $p_i$ is the probability of the coins being in a binary state given by $i$.  For instance $p_{71}$ is the probability of seeing $FTFFFTTT$. Notice that we have not moved to quantum information theory, but we are already motivated to use 256 dimensions instead of 8.  So cross ``exponential dimensions'' off the weirdness list.
+with $\sum p_i = 1$.  Each $p_i$ is the probability of the coins being in a binary state given by $i$.  For instance $p_{71}$ is the probability of seeing $FTFFFTTT$. Notice that we have not moved to quantum information theory, but we are already motivated to use 256 dimensions instead of 8.  This can be thought of as a tensor product.  So cross ``tensor product of ensembles'' off the weirdness list.
 
 The measurement of classical information is decidedly not weird.  We don't in fact have to measure the exact configuration.  For instance, we might just get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This cooresponds to a subset of $\{0,\cdots,255\}$ which we will call $S$.
 \[
