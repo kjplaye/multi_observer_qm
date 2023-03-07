@@ -5,10 +5,14 @@
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{braket}
+\usepackage{epigraph}
 %\usepackage{mathrsfs}
 \usepackage[mathscr]{euscript}
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
 \usepackage{fancyhdr}
+
+
+\setlength{\epigraphwidth}{0.8\textwidth}
 
 \pagestyle{fancy}
 \begin{document}
@@ -19,7 +23,10 @@
 
 \maketitle
 
-\abstract{We present several quintessential quantum ideas and shed them in a new, old, classical light.}
+
+\epigraph{I would not call [entanglement] {\bf one} but rather {\bf the} characteristic trait of quantum mechanics, the one that enforces its entire departure from classical lines of thought.}{Erwin Schrödinger}
+
+\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory should be understood as a generalization of classical information theory.  In fact, classical information theory is embedded in quantum information as positive zero phase wavefunctions.}
 
 \section{The Weirdo List}
 If you ask a physicist on the street what kinds of things are uniquely quantum mechanical they might just pick an item from this list
@@ -43,19 +50,21 @@ x_i \in \{T,F\}
 be the outcome for the throws $i$ = $1,\cdots,8$.  We have 8 ``dimensions'' worth of information to describe the 8 coins.  Lets move on and generalize.
   
 \subsection{Classical Information Theory}
-
+\subsubsection{Tensor Product for an Ensamble}
 We want to describe a general knowledge statement about the coins.  This will actually involve more than 8 dimensions.  We let
 \[
    p_0,\cdots,p_{255} \in \mathbb{R}^+
 \]
 with $\sum p_i = 1$.  Each $p_i$ is the probability of the coins being in a binary state given by $i$.  For instance $p_{71}$ is the probability of seeing $FTFFFTTT$. Notice that we have not moved to quantum information theory, but we are already motivated to use 256 dimensions instead of 8.  This can be thought of as a tensor product.  So cross ``tensor product of ensembles'' off the weirdness list.
 
+\subsubsection{Bayesian Projections as Classical Wave Function Collapse}
 The measurement of classical information is decidedly not weird.  We don't in fact have to measure the exact configuration.  For instance, we might just get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This cooresponds to a subset of $\{0,\cdots,255\}$ which we will call $S$.
 \[
    S = \{s \in \{0,\cdots,255\} | b_1(s) = T, b_2(s) = b_3(s) \}
 \]
 where $b_i(s)$ is the value $x_i$.  Someone could measure this by being told that the state was in $S$.
 
+\subsubsection{Bayesian Inference as General Classical Wave Function Collapse}
 A more general type measurement is a probabilistic measurement.  Someone could be told that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probablistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement, $p_i$, using a relative\footnote{Here the $P(\mathcal{O})$ cancels out and is wrapped up in the normalization. This omition reflects its non-physicality.} version of Bayes's rule
 \[
   \frac{\hat{p_i}}{\hat{p_j}} = \underbrace{\frac{P(i | \mathcal{O})}{P(j | \mathcal{O})}}_\text{Posterior}
@@ -67,6 +76,7 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \]
 A special case are projections $P(\mathcal{O} | i) \in \{0,1\}$, like the 100\% $S$ case above.  We call these Bayesian projections.
 
+\subsubsection{Classical Correlation as Classical Entanglement}
 Finally, we can also consider distributions such as the two coin distribution
 \[
 p_i = 
@@ -84,7 +94,7 @@ General quantum information\footnote{We are purposely leaving out density matric
 \[
    q_0,\cdots,q_{255} \in \mathbb{C}
 \]
-with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \rightarrow |q_i|^2 = p_i$ to classical probability.  Here we can instrument all of the classical information theoretic constructs by restricting the phase of $q_i$.  For instance, we can map backward $p_i \rightarrow \sqrt{p_i} = q_i$.  So quantum information theory needs to generalize the classical.  In particular, quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
+with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \rightarrow |q_i|^2 = p_i$ to classical probability.  Here we can instrument all of the classical information theoretic constructs by restricting the phase and positivity of $q_i$.  For instance, we can map backward $p_i \rightarrow \sqrt{p_i} = q_i$.  So quantum information theory needs to generalize the classical.  In particular, quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase and positivity.
 
 An example of this is to define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection.
 \[
