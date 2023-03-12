@@ -26,7 +26,7 @@
 
 \epigraph{I would not call [entanglement] {\bf one} but rather {\bf the} characteristic trait of quantum mechanics, the one that enforces its entire departure from classical lines of thought.}{Erwin Schrödinger}
 
-\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory should be understood as a generalization of classical information theory.  In fact, classical information theory is embedded in quantum information as positive zero phase wavefunctions.  In this way, we motivate multi-observer quantum mechanics and outline an experiment}
+\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory should be understood as a generalization of classical information theory.  In fact, classical information theory is embedded in quantum information as positive zero phase wavefunctions.  In this way, we motivate multi-observer quantum mechanics and outline an experiment.}
 
 \section{The Weirdo List}
 If you ask a physicist on the street what kinds of things are uniquely quantum mechanical they might just pick an item from this list
@@ -62,7 +62,7 @@ The measurement of classical information is decidedly not weird.  We don't in fa
 \[
    S = \{s \in \{0,\cdots,255\} | b_1(s) = T, b_2(s) = b_3(s) \}
 \]
-where $b_i(s)$ is the value $x_i$.  Someone could measure this by being told that the state was in $S$.
+where $b_i(s)$ is the value $x_i$.  Someone could measure this after being told that the state was in $S$.
 
 \subsubsection{Bayesian Inference as General Classical Wave Function Collapse}
 A more general type measurement is a probabilistic measurement.  Someone could be told that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probablistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement, $p_i$, using a relative\footnote{Here the $P(\mathcal{O})$ cancels out and is wrapped up in the normalization. This omition reflects its non-physicality.} version of Bayes's rule
@@ -77,7 +77,7 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 A special case are projections $P(\mathcal{O} | i) \in \{0,1\}$, like the 100\% $S$ case above.  We call these Bayesian projections.
 
 \subsubsection{Classical Correlation as Classical Entanglement}
-Finally, we can also consider distributions such as the two coin distribution
+Finally, we can also consider distributions such as the two coin distribution on $p_0,p_1,p_2,p_3$
 \[
 p_i = 
 \left\{
@@ -110,7 +110,7 @@ This implements classical Bayesian inference in the quantum realm.
 
 \section{Overview of the Classical to Quantum Generalization}
 
-The quantum mechanical concepts mentioned in section 1 are a direct generalization of their classical information theoretic analogs.  This is not to say that they are not weird, but to say that they need to be generalizations of the classical concepts.  Wave function collapsing should generalize Bayesian inference\footnote{QBism may be invoked here.} and classical measurement.  Entanglement should be a generalization of classical correlation.  These ideas have direct classical motivations, only after acknowledging this can we appreciate the weirdness that remains.
+The quantum mechanical concepts mentioned in Section 1 are a direct generalization of their classical information theoretic analogs.  This is not to say that they are not weird, but to say that they need to be generalizations of the classical concepts.  Wave function collapsing should generalize Bayesian inference\footnote{QBism may be invoked here.} and classical measurement.  Entanglement should be a generalization of classical correlation.  These ideas have direct classical motivations, only after acknowledging this can we appreciate the weirdness that remains.
 
 \section{Multi-Observer Quantum Mechanics}
 We wrap-up by focusing on quantum wave function collapse as a generalization of classical Bayesian inference.  We can implement the classical Bayesian inference within positive zero phase quantum mechanics as outlined above.  So the classical Bayesian theory has a direct tie in; that observation and measurement occur in tandem with a change in knowledge\footnote{This change in knowledge is tangible, it always occurs as a transfer of matter/energy from the environment to the observer \cite{thrust}.}.  
@@ -119,12 +119,13 @@ In the classical theory, knowledge is local to the observer\footnote{Note that c
 
 \section{Prediction}
 
-We predict that subjective multi-observer quantum mechanics will be required for a proper generalization of classical knowledge.  We propose an experiment where we inject an ``observer'' into a quantum eraser.  The observer will have to be a small apparatus that is both
+We predict that subjective multi-observer quantum mechanics will be required for a proper generalization of classical knowledge.  We propose an experiment where we inject an ``observer'' into a quantum eraser.  The observer will have to be a small apparatus that is
 \begin{itemize}
-   \item able to record a measurement and demonstrate this to the lab technician
-   \item able to forget the measurement
+   \item able to record a measurement $\psi$.
+   \item able to forget the measurement $\psi$.
+   \item able to demonstrate that a measurement was made with a record $\rho$.
 \end{itemize}
-From the technician's point of view, the apparatus is becoming entangled with the subject particles in the eraser experiment, so we need to find out that there is another wavefunction in play.  The key here is that the apparatus is able to demonstrate that it ``knows'' something.  There should be a record in the apparatus that it did at one point in time contain a measurement.  It can not have a record of the measurement for proper erasure, just that it did have one at one point have a measurement.
+Let $\phi$ be the technician's wavefunction.  In $\phi$ the apparatus is entangled with the subject particles in the eraser experiment.  We need to find out that there is another wavefunction in play that is not just part of $\phi$.  The key here is that the apparatus is able to demonstrate that it ``knew'' something, or in other words that the other wavefunction $\psi$ existed.  It can not maintain $\psi$ for proper erasure, and observed erasure proves that $\psi$ is not a part of $\phi$.  Finally, there should be a record $\rho$ in the apparatus that it did at one point in time record a measurement $\psi$.  If this experiment succeeds, it will show that $\psi$ and $\phi$ were necessarily part of a two-observer system.
 
 \section{Acknowledgments}
 Thanks to Erik Ferragut for useful discussions.
