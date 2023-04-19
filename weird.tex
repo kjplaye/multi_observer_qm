@@ -27,7 +27,7 @@
 
 \epigraph{I would not call [entanglement] {\bf one} but rather {\bf the} characteristic trait of quantum mechanics, the one that enforces its entire departure from classical lines of thought.}{Erwin Schrödinger}
 
-\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory should be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, classical information theory is embedded in quantum information theory as zero phase wavefunctions.  We employ this embedding to highlight the importance of a new multi-observer version of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
+\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory should be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, classical information theory is embedded in quantum information theory as zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer version of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
 
 \section{Quantum Weirdness List}
 If you ask a physicist on the street what kinds of things are uniquely quantum mechanical they might pick an item from this list
@@ -39,7 +39,7 @@ If you ask a physicist on the street what kinds of things are uniquely quantum m
 \item tensor product of ensembles
 \end{enumerate}
 
-It might be argued that entanglement is a uniquely quantum phenomenon with no classical analog.  The wave function collapsing is, according to Penrose \cite{penrose}, an unsettlingly nonlinear mystery.  The measurement problem is aptly named.  And unlike the 8-dimensional 8-bit classical ensemble, 8 qbits require 256 dimensions from a tensor product to describe.
+It might be argued that entanglement is a uniquely quantum phenomenon with no classical instance.  The wave function collapsing is, according to Penrose \cite{penrose}, an unsettlingly nonlinear mystery.  The measurement problem is aptly named.  And unlike the 8-dimensional 8-bit classical ensemble, 8 qbits require 256 dimensions from a tensor product to describe.
 
 \section{Some Thoughts}
 With 8 coins in hand, we conduct some thought experiments.
@@ -52,7 +52,7 @@ be the outcome for the throws $i$ = $1,\cdots,8$.  We have 8 ``dimensions'' wort
   
 \subsection{Classical Information Theory}
 We follow a knowledge based or epistemic treatment.
-\subsubsection{Tensor Product for an Ensamble}
+\subsubsection{Tensor Product for an Ensemble}
 We want to describe a general knowledge statement about the coins.  This will actually involve more than 8 dimensions.  We let
 \[
    p_0,\cdots,p_{255} \in \mathbb{R}^+
@@ -60,23 +60,24 @@ We want to describe a general knowledge statement about the coins.  This will ac
 with $\sum p_i = 1$.  Each $p_i$ is the probability of the coins being in a configuration state given by the binary expansion of $i$.  For instance $p_{71}$ is the probability of seeing $FTFFFTTT$. Notice that we have not moved to quantum information theory, but we are already motivated to use 256 dimensions instead of 8.  This can be thought of as a tensor product.  So cross ``tensor product of ensembles'' off the weirdness list.
 
 \subsubsection{Bayesian Projections as Classical Wave Function Collapse}
-The measurement of classical information is decidedly not weird, so this section should be familiar to all who observe.  We don't always get to measure the exact configuration.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This cooresponds to a subset of $\{0,\cdots,255\}$, which we will call
+\label{proj}
+The measurement of classical information is decidedly not weird, so this section should be familiar to all who observe.  We don't always get to measure the exact configuration.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an exemplar subset of $\{0,\cdots,255\}$, which we will call
 \[
    S = \{s \in \{0,\cdots,255\} | b_1(s) = T, b_2(s) = b_3(s) \},
 \]
-where $b_i(s)$ is the value $x_i$.  Someone could make a measurement that only tells them that the state is in $S$ and nothing else.
+where $b_i(s)$ is the value $x_i$.  Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The wavefunction becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
 
 \subsubsection{Bayesian Inference as General Classical Wave Function Collapse}
-A more general type measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probablistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{Within the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization. Corrospondingly, $P(\mathcal{O})$ is only significant prior to its observation and it doesn't need to be considered in the update process.} version of Bayes's rule
+A more general type measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probabilistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{In the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization.  $P(\mathcal{O})$ only holds significance prior to its observation and it doesn't require consideration during the update process.} version of Bayes's rule
 \[
   \frac{\hat{p_i}}{\hat{p_j}} = \underbrace{\frac{P(i | \mathcal{O})}{P(j | \mathcal{O})}}_\text{Posterior}
                               = \underbrace{\frac{P(\mathcal{O} | i)}{P(\mathcal{O}|j)}}_\text{Bayes Factor}  \hspace{0.07 in}  \underbrace{\frac{p_i}{p_j}}_\text{Prior}
 \]
-Pulling out the Bayes factor we find that we just multiply by the likelihood and re-normalize.
+Pulling out the Bayes factor we find that we just multiply by the likelihood and re-normalize
 \[
-  \hat{p_k} =  P(\mathcal{O} | k) \hspace{0.07 in} p_k
+  \hat{p_k} =  P(\mathcal{O} | k) \hspace{0.07 in} p_k.
 \]
-A special case are projections $P(\mathcal{O} | k) \in \{0,1\}$, like the 100\% $S$ case above.  We call these Bayesian projections.
+A special case are projections $P(\mathcal{O} | k) \in \{0,1\}$, like the $S$ projection case in section \ref{proj}.  We call these Bayesian projections.
 
 \subsubsection{Classical Correlation as Classical Entanglement}
 Finally, we can also consider distributions such as the two coin distribution $p_0,p_1,p_2,p_3$
@@ -89,7 +90,7 @@ p_i =
 \end{split}
 \right.
 \]
-We have $FF$ or $TT$ with equal probabilities.  If I give the first coin to Alice and the second coin to Bob then we have a classical correlation.  If Bob finds that the first coin is $T$ then we know that Alice will also find $T$.  The reduction is purely epistemic, it is the seperate knowledge of Alice and Bob that is changing.  This should all seem very reasonable from every day experience; classical correlation is not weird.
+We have $FF$ or $TT$ with equal probabilities.  If I give the first coin to Alice and the second coin to Bob then we have a classical correlation.  If Bob finds that the first coin is $T$ then we know that Alice will also find $T$.  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.  This should all seem very reasonable from every day experience; classical correlation is not weird.
 
 \subsection{Quantum Information Theory}
 \subsubsection{Classical to Quantum Embedding}
@@ -112,7 +113,7 @@ with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \rightarrow |q_
 So quantum information theory needs to generalize the classical.  In particular, quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
 
 \subsubsection{Bayesian Projection}
-Without loss of generality, we motivate the generalization of Bayesian projection with an example.
+We illustrate zero phase Bayesian projection with an example.
 
 Within the embedding we define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection
 \[
@@ -121,11 +122,11 @@ Within the embedding we define a projection operator $\pi$ which projects onto t
 Then let $A$ be any operator with an eigenspace, with eigenvalue $\lambda$, equal to the image of $\pi$.  An observation of $\lambda$ would correspond to an application of $\pi$, which is a Bayesian projection in the classical picture.
 
 \subsubsection{Bayesian Inference}
-Finally, consider, in the fashion of \cite{nielsenchuang}, a more general measurement with matrix $M_\mathcal{O}$ which is diagonal with entries
+Consider, in the fashion of \cite{nielsenchuang}, a more general measurement with matrix $M_\mathcal{O}$ which is diagonal with entries
 \[
    M_\mathcal{O}(i,i) = \sqrt{P(\mathcal{O} | i)}
 \]
-This implements classical Bayesian inference in the quantum realm.
+This implements classical Bayesian inference using zero phase wavefunctions.
 
 
 \subsubsection{Entropy}
@@ -150,10 +151,10 @@ We predict that multi-observer quantum mechanics will be required for a proper g
 \end{itemize}
 Let $\phi$ be the lab technician's wavefunction.  In $\phi$ the apparatus is entangled with the subject particles in the eraser experiment.  We need to find out if there is another wavefunction in play that is not just part of $\phi$.  The key here is that the apparatus is able to demonstrate that it ``knew'' something, or in other words that another wavefunction $\psi$ existed, using $\rho$.
 
-The apparatus can not keep $\psi$ for proper erasure, but must ``forget'' it.  Observed erasure, via an interference pattern, proves that $\psi$ is not a part of $\phi$.  Finally, there should be a record $\rho$ in the apparatus that it did at one point in time record a measurement $\psi$.  Reciept of the report $\rho$ and eraser interference pattern together show that $\psi$ and $\phi$ were necessarily part of a two-observer system.
+The apparatus can not keep $\psi$ for proper erasure, but must ``forget'' it.  Observed erasure, via an interference pattern, proves that $\psi$ is not a part of $\phi$.  Finally, there should be a record $\rho$ in the apparatus that it did at one point in time record a measurement $\psi$.  Receipt of the report $\rho$ and eraser interference pattern together show that $\psi$ and $\phi$ were necessarily part of a two-observer system.
 
 \section{Acknowledgments}
-Thanks to Erik Ferragut for useful discussions.
+Thanks to Erik Ferragut and Dan Justice for useful discussions.
 
 \bibliographystyle{ieeetr}
 \bibliography{bibliography}
