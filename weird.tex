@@ -27,45 +27,53 @@
 
 \epigraph{I would not call [entanglement] {\bf one} but rather {\bf the} characteristic trait of quantum mechanics, the one that enforces its entire departure from classical lines of thought.}{Erwin Schrödinger}
 
-\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory should be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, classical information theory is embedded in quantum information theory as zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer version of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
+\abstract{We present several quintessential quantum ideas and shed them in a classical light.  The ideas presented all have analogues in classical information theory.  For instance, entanglement is presented as a generalization of classical correlation.  We argue how quantum information theory can be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, we show how classical information theory can be embedded in quantum information theory as zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer version of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
 
-\section{Quantum Weirdness List}
-If you ask a physicist on the street what kinds of things are uniquely quantum mechanical they might pick an item from this list
-
-\begin{enumerate}
-\item entanglement
-\item wave function collapse
-\item the measurement problem
-\item tensor product of ensembles
-\end{enumerate}
-
-It might be argued that entanglement is a uniquely quantum phenomenon with no classical instance.  The wave function collapsing is, according to Penrose \cite{penrose}, an unsettlingly nonlinear mystery.  The measurement problem is aptly named.  And unlike the 8-dimensional 8-bit classical ensemble, 8 qbits require 256 dimensions from a tensor product to describe.
-
-\section{Some Thoughts}
-With 8 coins in hand, we conduct some thought experiments.
+\section{Some Thought Experiments}
+Lets start with a 3-bit example, where each bit is realized by coins which are heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.
 \subsection{Configurations}
-Let us try to describe the situation once we throw the 8 coins.  Let
+Let us try to describe the situation once we throw the 3 coins.  Let
 \[
-x_i \in \{T,F\}
+x_i \in \{H,T\}
 \]
-be the outcome for the throws $i$ = $1,\cdots,8$.  We have 8 ``dimensions'' worth of information to describe the 8 coins.  Lets move on and generalize.
+be the outcome for the throws $i$ = $1,2,3$ and let $x$ be the resulting configuration sequence.  Nominally, we have 3 ``dimensions'' worth of information to describe the 3 coins.  Lets move on and generalize.
   
 \subsection{Classical Information Theory}
-We follow a knowledge based or epistemic treatment.
-\subsubsection{Tensor Product for an Ensemble}
-We want to describe a general knowledge statement about the coins.  This will actually involve more than 8 dimensions.  We let
+In the following subsections we outline an epistemic treatment where we try to represent our knowledge of the 3 coin ensemble. We want to describe a general knowledge statement about the coins.  We will build this up here using basic probablistic statements and classical superpositions.
+
+For any configuration $x$ we have the knowledge statement $b_x$, that says we know $x$ with probablity 1.  We call this a basic statement.  There are 8 configurations, so there are 8 basic statements.
+
+A classical superposition can be made for any probabilistic statements $s_1$ and $s_2$ and $\alpha \in [0,1]$
 \[
-   p_0,\cdots,p_{255} \in \mathbb{R}^+
+\text{super}_\alpha(s_1,s_2) = \alpha s_1 + (1 -\alpha) s_2.
 \]
-with $\sum p_i = 1$.  Each $p_i$ is the probability of the coins being in a configuration state given by the binary expansion of $i$.  For instance $p_{71}$ is the probability of seeing $FTFFFTTT$. Notice that we have not moved to quantum information theory, but we are already motivated to use 256 dimensions instead of 8.  This can be thought of as a tensor product.  So cross ``tensor product of ensembles'' off the weirdness list.
+This is statement $s_1$ with probablity $\alpha$ and statement $s_2$ with probability $(1-\alpha)$.  Repeatedly applying superpositions starting with the basic statements and then also to the resulting substatements allows us to consider knowledge statements as general probability distributions on the ensamble of coins.
+
+\subsubsection{Distributions on the Ensamble}
+The general knowledge statements on 3 coins are in fact an 8 dimensional space spanned by the 8 basic statements
+\[
+   p_0,\cdots,p_{7} \in \mathbb{R}^+
+\]
+and normalized with $\sum p_i = 1$.  Each $p_i$ is the probability of the coins being in a configuration state given by the binary expansion of $i$.  For instance $p_5$ is the probability of seeing $THT$. Notice that we have not moved to quantum information theory, but we are already motivated to use 8 dimensions instead of 3.
 
 \subsubsection{Bayesian Projections as Classical Wave Function Collapse}
 \label{proj}
-The measurement of classical information is decidedly not weird, so this section should be familiar to all who observe.  We don't always get to measure the exact configuration.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an exemplar subset of $\{0,\cdots,255\}$, which we will call
+We don't always get to measure the exact configuration.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an exemplar subset of $\{0,\cdots,7\}$, which we will call
 \[
-   S = \{s \in \{0,\cdots,255\} | b_1(s) = T, b_2(s) = b_3(s) \},
+\begin{split}
+  S &= \{s \in \{0,\cdots,7\} | c_1(s) = T, c_2(s) = c_3(s) \} \\
+    & = \{4,7\} \hspace{0.4 in} \text{(THH, TTT)}
+\end{split}
 \]
-where $b_i(s)$ is the value $x_i$.  Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The wavefunction becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
+where $c_i(s)$ is the value $x_i$.  Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The wavefunction becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.3]{cube.png}
+\caption{Coin configurations with $S$ circled in yellow.}
+\label{masslessshell}
+\end{figure}
+
 
 \subsubsection{Bayesian Inference as General Classical Wave Function Collapse}
 A more general type measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probabilistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{In the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization.  $P(\mathcal{O})$ only holds significance prior to its observation and it doesn't require consideration during the update process.} version of Bayes's rule
@@ -77,7 +85,7 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \[
   \hat{p_k} =  P(\mathcal{O} | k) \hspace{0.07 in} p_k.
 \]
-A special case are projections $P(\mathcal{O} | k) \in \{0,1\}$, like the $S$ projection case in section \ref{proj}.  We call these Bayesian projections.
+A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, like the $S$ projection case in section \ref{proj}.  We call these Bayesian projections.
 
 \subsubsection{Classical Correlation as Classical Entanglement}
 Finally, we can also consider distributions such as the two coin distribution $p_0,p_1,p_2,p_3$
@@ -90,13 +98,13 @@ p_i =
 \end{split}
 \right.
 \]
-We have $FF$ or $TT$ with equal probabilities.  If I give the first coin to Alice and the second coin to Bob then we have a classical correlation.  If Bob finds that the first coin is $T$ then we know that Alice will also find $T$.  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.  This should all seem very reasonable from every day experience; classical correlation is not weird.
+We have $HH$ or $TT$ with equal probabilities.  If I give the first coin to Alice and the second coin to Bob then we have a classical correlation.  If Bob finds that the first coin is $T$ then we know that Alice will also find $T$.  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.  This should all seem very reasonable from every day experience; classical correlation is not weird.
 
 \subsection{Quantum Information Theory}
 \subsubsection{Classical to Quantum Embedding}
 General quantum information\footnote{We are purposely leaving out density matrices and POVMs and just dealing with pure states.} about 8-qbits can be expressed as a wave function.
 \[
-   q_0,\cdots,q_{255} \in \mathbb{C}
+   q_0,\cdots,q_{7} \in \mathbb{C}
 \]
 with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \rightarrow |q_i|^2 = p_i$ to classical probability.  Here we can instrument all of the classical information theoretic constructs by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \rightarrow \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
 
