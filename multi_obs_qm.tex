@@ -37,13 +37,13 @@
 \abstract{We present several quintessential quantum ideas and shed them in a classical light.  We argue how quantum information theory can be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, we show how classical information theory can be embedded in quantum information theory using zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer extension of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
 
 \section{Some Thought Experiments}
-Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to any finite and often to more general continuous densities.
+Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to any finite set and often to more general continuous densities.
 \subsection{Classical Sequences}
 Let us try to describe the situation once we throw the 3 coins.  Let
 \[
 x_i \in \{H,T\}
 \]
-be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  Nominally, we have 3 degrees of freedom to describe the tribit.  Lets move on and generalize using classical statistics.
+be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  Let $C$ be the set of 8 possible tribits.  Nominally, we have 3 degrees of freedom to describe the tribit.  Lets move on and generalize using classical statistics.
   
 \subsection{Classical Information Theory}
 In the following subsections we outline an epistemic treatment of classical information where we try to represent our classical knowledge of the 3 coin ensemble.
@@ -52,7 +52,7 @@ In the following subsections we outline an epistemic treatment of classical info
 We want to describe a classical probabilistic knowledge statement\footnote{Whenever we say ``statement'' in this paper, we mean knowledge statement, or Bayesian belief statement.} about the coins.  We will construct our statements using some simple rules.
 \begin{myrule}
 \label{rule1}
-For any tribit $x$ we have the knowledge statement $b_x$, that says we know $x$ with certainty, probability 1.  We call this a basic statement.
+For any tribit $x \in C$ we have the knowledge statement $b_x$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
 \end{myrule}
 There are 8 tribits, so there are 8 basic statements.
 \begin{myrule}
@@ -67,15 +67,15 @@ This formal combination means to take statement $s_1$ with probability $\alpha$ 
 
 \subsubsection{Distributions on the Ensemble}
 
-Next consider the set $P$ of probability distributions on tribits.  We identify the 8 tribits $x$ with the integers $i=0,\cdots,7$, by using the binary expansion of $i$ and mapping $0 \mapsto H$ and $1 \mapsto T$ (for instance $5 \mapsto THT$).
+Next consider the set $P(C)$ of probability distributions on tribits.  We identify the 8 tribits $x$ with the integers $i=0,\cdots,7$, by using the binary expansion of $i$ and mapping $0 \mapsto H$ and $1 \mapsto T$ (for instance $5 \mapsto THT$).
 
-For each $p$ in $P$ we let $p_i$ be the probability of the tribit $i$ (for instance $p_5$ is the probability of seeing $THT$.)  Then $p_i$ completely characterizes $p$.  We can regard $p$ as living in an 8 dimensional space $\mathbb{R}^8$, which we call $X_3$, as
+For each $p$ in $P$ we let $p_i$ be the probability of the tribit $i$ (for instance $p_5$ is the probability of seeing $THT$.)  Then $p_i$ completely characterizes $p$ in the following way.  We can regard $p$ as living in an 8 dimensional space $\mathbb{R}^8$, which we call $X_3$ by taking
 \[
 p \mapsto (p_i) \in X_3.
 \]
-
+Let $\mathcal{O}(S)$ be the set of knowledge statements on $S$ built up from repeatedly applying the Rules \ref{rule1} and \ref{rule2}.
 \begin{lemma}
-  The set of statements that arise from Rules \ref{rule1} and \ref{rule2} is exactly $P \subseteq X_3$.
+  $\mathcal{O}(C)$ = $P(C)$
 \end{lemma}
 \begin{proof}
   Repeatedly applying superpositions starting with the basic statements and then also to the resulting sub-statements allows us to construct any probability distribution on tribits.  This can seen by inductively extending the distribution
@@ -103,7 +103,13 @@ We also  pause to note that each coin corresponds to a 2 dimensional space $X = 
 \[
 (x_1,x_2,x_3) \mapsto x_1 \otimes x_2 \otimes x_3.
 \]
-In general the classical knowledge statements about $n$ bit ensembles naturally live in $X ^ {\otimes n}$.  This generalizes to wavefunctions for $n$ qubits in quantum mechanics.
+In general the classical knowledge statements about $n$ bit ensembles naturally live in $X ^ {\otimes n}$.
+\begin{lemma}
+  $\mathcal{O}(A \cup B) = \mathcal{O}(A) \otimes \mathcal{O}(B)$
+\end{lemma}
+\begin{proof}
+  The proof is the same as above.  We find that $(a,b) \mapsto a \otimes b.$
+\end{proof}
 
 \subsubsection{Bayesian Projections as Classical Wave Function Collapse}
 \label{proj}
