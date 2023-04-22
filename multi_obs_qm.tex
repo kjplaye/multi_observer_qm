@@ -65,15 +65,16 @@ We don't always get to measure the exact configuration.  For instance, we might 
     & = \{4,7\} \hspace{0.4 in} \text{(THH, TTT)}
 \end{split}
 \]
-where $c_i(s)$ is the value $x_i$.  Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The wavefunction becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
+where $c_i(s)$ is the value $x_i$.
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=0.3]{cube.png}
+\includegraphics[scale=0.6]{cube.png}
 \caption{Coin configurations with $S$ circled in yellow.}
 \label{masslessshell}
 \end{figure}
 
+Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The wavefunction becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
 
 \subsubsection{Bayesian Inference as General Classical Wave Function Collapse}
 A more general type measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probabilistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{In the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization.  $P(\mathcal{O})$ only holds significance prior to its observation and it doesn't require consideration during the update process.} version of Bayes's rule
