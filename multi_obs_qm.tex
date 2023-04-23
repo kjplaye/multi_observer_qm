@@ -16,6 +16,10 @@
 \theoremstyle{myrule}
 \newtheorem{myrule}{Rule}[section]
 
+\theoremstyle{postulate}
+\newtheorem{postulate}{Postulate}[section]
+
+
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
@@ -37,48 +41,53 @@
 \abstract{We present several quintessential quantum ideas and shed them in a classical light.  We argue how quantum information theory can be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, we show how classical information theory can be embedded in quantum information theory using zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer extension of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
 
 \section{Some Thought Experiments}
-Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to any finite set and often to more general continuous densities.
-\subsection{Classical Sequences}
-Let us try to describe the situation once we throw the 3 coins.  Let
+Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to any finite set.
+\subsection{Sequences and Notation}
+Let us describe the situation once we throw the 3 coins.  We move freely between binary bits ($0$ and $1$) and coin states ($H$ and $T$) mapping between them $H \leftrightarrow 0$ and $T \leftrightarrow 1$. Let
 \[
 x_i \in \{H,T\}
 \]
-be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  Let $C$ be the set of 8 possible tribits.  Nominally, we have 3 degrees of freedom to describe the tribit.  Lets move on and generalize using classical statistics.
+be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  An example would be the tribit $\mathit{6}$ with any of the following forms
+\begin{itemize}
+\item $110$
+\item $TTH$
+\item $(1,1,0)$
+\item $(T,T,H)$
+\item tribit $\mathit{6}$
+\end{itemize}
+Let $C$ be the set of 8 possible tribits. 
   
 \subsection{Classical Information Theory}
-In the following subsections we outline an epistemic treatment of classical information where we try to represent our classical knowledge of the 3 coin ensemble.
+During this sections we outline an epistemic treatment of classical information where we represent our classical knowledge of the 3 coin ensemble.
 
 \subsubsection{Rules for Constructing Knowledge Statements}
-We want to describe a classical probabilistic knowledge statement\footnote{Whenever we say ``statement'' in this paper, we mean knowledge statement, or Bayesian belief statement.} about the coins.  We will construct our statements using some simple rules.
-\begin{myrule}
+We want to describe knowledge statements\footnote{Whenever we say ``statement'' in this paper, we mean knowledge statement, or Bayesian belief statement.} about the coins.  For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to construct and understand $\mathcal{K}(C)$ by repeatedly applying the following simple rules.
+\begin{postulate}
 \label{rule1}
-For any tribit $x \in C$ we have the knowledge statement $b_x$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
-\end{myrule}
-There are 8 tribits, so there are 8 basic statements.
-\begin{myrule}
+For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
+\end{postulate}
+There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.
+\begin{postulate}
  \label{rule2}
-  A classical logical convex superposition can be made for any probabilistic statements $s_1$ and $s_2$ and $\alpha \in [0,1]$
+  A formal superposition can be made for any statements $s_1 \in \mathcal{K}(C)$ and $s_2 \in \mathcal{K}(C)$ and $\alpha \in [0,1]$
   \begin{equation}
   \label{super}
   \text{super}_\alpha(s_1,s_2) = \alpha s_1 + (1 -\alpha) s_2.
   \end{equation}
-This formal combination means to take statement $s_1$ with probability $\alpha$ and statement $s_2$ with probability $(1-\alpha)$; This is a new statement.
-\end{myrule}
+This formal combination means to take statement $s_1$ with probability $\alpha$ and statement $s_2$ with probability $(1-\alpha)$; This is a new statement in $ \mathcal{K}(C)$.
+\end{postulate}
 
 \subsubsection{Distributions on the Ensemble}
 
-Next consider the set $P(C)$ of probability distributions on tribits.  We identify the 8 tribits $x$ with the integers $i=0,\cdots,7$, by using the binary expansion of $i$ and mapping $0 \mapsto H$ and $1 \mapsto T$ (for instance $5 \mapsto THT$).
-
-For each $p$ in $P$ we let $p_i$ be the probability of the tribit $i$ (for instance $p_5$ is the probability of seeing $THT$.)  Then $p_i$ completely characterizes $p$ in the following way.  We can regard $p$ as living in an 8 dimensional space $\mathbb{R}^8$, which we call $X_3$ by taking
-\[
-p \mapsto (p_i) \in X_3.
-\]
-Let $\mathcal{O}(S)$ be the set of knowledge statements on $S$ built up from repeatedly applying the Rules \ref{rule1} and \ref{rule2}.
+For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on $A$.  Then $\mathcal{P}(C)$ is the set of probability distributions on tribits. For a fixed $\eta \in \mathcal{P}(C)$ we let $p_i$ be the probability of the tribit $i$ in $\eta$ (for instance $p_\mathit{6}$ is the probability of seeing $TTH$.)  Then the eight $p_i$ completely characterize $\eta$ as the vector $(p_\mathit{0},\cdots,p_\mathit{7}) \in \mathbb{R}^8$.  Call this 8 dimensional ambient space $\mathcal{V}(C)$ (and in general $\mathcal{V}(A)$ for set $A$).
 \begin{lemma}
-  $\mathcal{O}(C)$ = $P(C)$
+\label{prob}
+  $\mathcal{K}(C)$ = $\mathcal{P}(C)$
 \end{lemma}
 \begin{proof}
-  Repeatedly applying superpositions starting with the basic statements and then also to the resulting sub-statements allows us to construct any probability distribution on tribits.  This can seen by inductively extending the distribution
+  Let $\eta \in \mathcal{K}(C)$.  The rules \ref{rule1} and \ref{rule2}, that form $\eta$, output probability distributions at every step.  So $\eta \in \mathcal{P}(C)$.
+  
+  Next let $\eta = (p_i) \in \mathcal{P}(C)$.  We inductively extend the distribution
   \[
   \eta_k = \gamma_k (p_0, \cdots, p_{k-1}, 0, \cdots)
   \]
@@ -86,38 +95,60 @@ Let $\mathcal{O}(S)$ be the set of knowledge statements on $S$ built up from rep
   \[
   \eta_{k+1} = \gamma_{k+1} (p_0, \cdots, p_{k}, 0, \cdots)
   \]
-  using
+  using basic $b_k$ and 
   \[
   \eta_{k+1} = super_\alpha(\eta_k,b_k)
   \]
-  for appropriate choices of normalizations $\gamma_k, \gamma_{k+1}$ and $\alpha$.
+  for appropriate choices of normalizations $\gamma_k, \gamma_{k+1}$ and $\alpha$. So we have a sequence of rules that form $\eta$ and hence $\eta \in \mathcal{K}(C)$.
 \end{proof}
 
-A general knowledge statement $\eta \in P$ combines the basic statements $b_0, \cdots, b_7$ using coefficients $p_i$,
-\[
-  p_0,\cdots,p_{7} \in \mathbb{R}^+,
-\]
-so that $\eta = \sum p_i b_i$.  To be a statistical distribution we need it to be normalized with $\sum p_i = 1$.  Note that now (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $X_3$.
+\begin{corollary}
+  For any finite set $A$,
+  \[
+  \mathcal{K}(A) = \left\{ (p_a)_{a \in A} \in \mathbb{R}^{|A|} \middle | \sum_{a \in A} p_a = 1 \right\}  \subseteq \mathcal{V}(A)
+  \]
+\end{corollary}
+\begin{proof}
+  The right hand side is the definition of $\mathcal{P}(A)$ and the claim follows using a generalization of the proof in Lemma \ref{prob}.
+\end{proof}
 
-We also  pause to note that each coin corresponds to a 2 dimensional space $X = \langle H, T \rangle$ spanned by formal vectors $H$ and $T$.  The 8 dimensional space $X ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  In this way, the space of classical knowledge statements of the ensemble, $X_3$, is naturally identified with the tensor power $X^{\otimes 3}$ by sending
+A general knowledge statement $\eta \in \mathcal{K}(C)$ combines the basic statements $b_\mathit{0}, \cdots, b_\mathit{7}$ using coefficients $p_i$,
+\[
+  p_\mathit{0},\cdots,p_{\mathit{7}} \in \mathbb{R}^+,
+\]so that $\eta = \sum p_i b_i$.  To be a statistical distribution we need it to be normalized with $\sum p_i = 1$.  Note that (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $\mathcal{V}(C)$.
+
+
+Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $V_1$.  The 8 dimensional space $V_1 ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $V_1^{\otimes 3}$ by sending
 \[
 (x_1,x_2,x_3) \mapsto x_1 \otimes x_2 \otimes x_3.
 \]
-In general the classical knowledge statements about $n$ bit ensembles naturally live in $X ^ {\otimes n}$.
+In general the classical knowledge statements about $n$ bit ensembles naturally live in $V_1 ^ {\otimes n}$.
 \begin{lemma}
-  $\mathcal{O}(A \cup B) = \mathcal{O}(A) \otimes \mathcal{O}(B)$
+  $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$
 \end{lemma}
 \begin{proof}
-  The proof is the same as above.  We find that $(a,b) \mapsto a \otimes b.$
+  The proof is the same as above.  We find that we can map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.
 \end{proof}
+Let $\mathcal{S}$ be the category of nonempty sets with surjections.  Let $\mathcal{W}$ be the category of real vectorspaces with injections.  Then
+\begin{lemma}
+  $\mathcal{K}$ is a contravariant functors from $\mathcal{S}$ to $\mathcal{W}$
+\end{lemma}
+\begin{proof}
+  Let $f:B \rightarrow A$ be a surjection of sets.  Let $\eta = (p_a) \in \mathcal{K}(A)$ so that $\eta$ is a probability distribution on $A$.  We lift $\eta$ to a probability distribution on $B$, $\hat{\eta} = (\hat{p}_b)$,  by taking a uniform distribution on each fiber.  That is we define for $b \in B$
+  \[
+  \hat{p}_b = \frac{1}{|f^{-1}(f(b) )|} p_{f(b)}
+  \]
+This map $\eta \mapsto \hat{\eta}$ is injective.
+\end{proof}
+
 
 \subsubsection{Bayesian Projections as Classical Wave Function Collapse}
 \label{proj}
-We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an subset of $\{0,\cdots,7\}$, which we will call
+We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an subset of $\{\mathit{0},\cdots,\mathit{7}\}$, which we will call
 \[
 \begin{split}
-  S &= \{s \in \{0,\cdots,7\} | c_1(s) = T, c_2(s) = c_3(s) \} \\
-    & = \{4,7\} \hspace{0.4 in} \text{(THH, TTT)}
+  S &= \{s \in \{\mathit{0},\cdots,\mathit{7}\} | c_1(s) = T, c_2(s) = c_3(s) \} \\
+    & = \{\mathit{4},\mathit{7}\} \hspace{0.4 in} \text{(THH, TTT)}
 \end{split}
 \]
 where $c_i(s)$ is the value $x_i$.  We will use $S$ as an example in the remaining text.
@@ -155,7 +186,7 @@ We have $HH$ or $TT$ with equal probabilities for the second and third coins.  I
 \subsubsection{Classical to Quantum Embedding}
 General quantum information\footnote{We are purposely leaving out density matrices and POVMs and just dealing with pure states.} about 8-qubits can be expressed as a wave function.
 \[
-   q_0,\cdots,q_{7} \in \mathbb{C}
+   q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
 \]
 with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  Here we can instrument all of the classical information theoretic constructs by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
 
