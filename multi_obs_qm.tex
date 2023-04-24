@@ -40,14 +40,15 @@
 
 \abstract{We present several quintessential quantum ideas and shed them in a classical light.  We argue how quantum information theory can be understood as a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, we show how classical information theory can be embedded in quantum information theory using zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer extension of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
 
-\section{Some Thought Experiments}
-Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to any finite set.
-\subsection{Sequences and Notation}
+\section{Classical Information Theory}
+Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  During this section we outline an epistemic treatment of classical information where we represent our classical knowledge of the 3 coin ensemble. The ideas that we encounter all extend without loss of generality to $n$-bits or any finite set.
+
+\subsection{Tribits and Notation}
 Let us describe the situation once we throw the 3 coins.  We move freely between binary bits ($0$ and $1$) and coin states ($H$ and $T$) mapping between them $H \leftrightarrow 0$ and $T \leftrightarrow 1$. Let
 \[
 x_i \in \{H,T\}
 \]
-be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  An example would be the tribit $\mathit{6}$ with any of the following forms
+be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  For example cnosider the tribit $\mathit{6}$ with any of the following forms
 \begin{itemize}
 \item $110$
 \item $TTH$
@@ -57,10 +58,7 @@ be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote
 \end{itemize}
 Let $C$ be the set of 8 possible tribits. 
   
-\subsection{Classical Information Theory}
-During this sections we outline an epistemic treatment of classical information where we represent our classical knowledge of the 3 coin ensemble.
-
-\subsubsection{Rules for Constructing Knowledge Statements}
+\subsection{Rules for Constructing Knowledge Statements}
 We want to describe knowledge statements\footnote{Whenever we say ``statement'' in this paper, we mean knowledge statement, or Bayesian belief statement.} about the coins.  For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to construct and understand $\mathcal{K}(C)$ by repeatedly applying the following simple rules.
 \begin{postulate}
 \label{rule1}
@@ -77,7 +75,7 @@ There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\ma
 This formal combination means to take statement $s_1$ with probability $\alpha$ and statement $s_2$ with probability $(1-\alpha)$; This is a new statement in $ \mathcal{K}(C)$.
 \end{postulate}
 
-\subsubsection{Distributions on the Ensemble}
+\subsection{Distributions on the Ensemble}
 
 For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on $A$.  Then $\mathcal{P}(C)$ is the set of probability distributions on tribits. For a fixed $\eta \in \mathcal{P}(C)$ we let $p_i$ be the probability of the tribit $i$ in $\eta$ (for instance $p_\mathit{6}$ is the probability of seeing $TTH$.)  Then the eight $p_i$ completely characterize $\eta$ as the vector $(p_\mathit{0},\cdots,p_\mathit{7}) \in \mathbb{R}^8$.  Call this 8 dimensional ambient space $\mathcal{V}(C)$ (and in general $\mathcal{V}(A)$ for set $A$).
 \begin{lemma}
@@ -107,27 +105,28 @@ For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on 
   \[
   \mathcal{K}(A) = \left\{ (p_a)_{a \in A} \in \mathbb{R}^{|A|} \middle | \sum_{a \in A} p_a = 1 \right\}  \subseteq \mathcal{V}(A)
   \]
+where $\mathcal{K}(A)$ is codimension 1 in $\mathcal{V}(A)$.
 \end{corollary}
 \begin{proof}
-  The right hand side is the definition of $\mathcal{P}(A)$ and the claim follows using a generalization of the proof in Lemma \ref{prob}.
+  The right hand side is the definition of $\mathcal{P}(A)$ and the claim follows using a generalization of the proof of Lemma \ref{prob}.
 \end{proof}
 
-A general knowledge statement $\eta \in \mathcal{K}(C)$ combines the basic statements $b_\mathit{0}, \cdots, b_\mathit{7}$ using coefficients $p_i$,
+A general knowledge statement $\eta \in \mathcal{K}(C)$ combines the basic statements $b_\mathit{0}, \cdots, b_\mathit{7}$ using coefficients $p_\mathit{0}, \cdots, p_\mathit{7}$,
 \[
   p_\mathit{0},\cdots,p_{\mathit{7}} \in \mathbb{R}^+,
-\]so that $\eta = \sum p_i b_i$.  To be a statistical distribution we need it to be normalized with $\sum p_i = 1$.  Note that (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $\mathcal{V}(C)$.
+\]so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $\mathcal{V}(C)$.
 
 
 Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $V_1$.  The 8 dimensional space $V_1 ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $V_1^{\otimes 3}$ by sending
 \[
 (x_1,x_2,x_3) \mapsto x_1 \otimes x_2 \otimes x_3.
 \]
-In general the classical knowledge statements about $n$ bit ensembles naturally live in $V_1 ^ {\otimes n}$.
+In general the classical knowledge statements about $n$ bit ensembles are normalized element of $V_1 ^ {\otimes n} = \mathcal{V}(\mathbb{Z}_2^n)$.
 \begin{lemma}
   $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$
 \end{lemma}
 \begin{proof}
-  The proof is the same as above.  We find that we can map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.
+  The proof is the same as above.  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.
 \end{proof}
 Let $\mathcal{S}$ be the category of nonempty sets with surjections.  Let $\mathcal{W}$ be the category of real vectorspaces with injections.  Then
 \begin{lemma}
@@ -140,18 +139,25 @@ Let $\mathcal{S}$ be the category of nonempty sets with surjections.  Let $\math
   \]
 This map $\eta \mapsto \hat{\eta}$ is injective.
 \end{proof}
+\begin{corollary}
+  Let $A$ and $B$ be a sets and let $D$ be a set of size 1.
+  \begin{itemize}
+    \item The map $A \rightarrow D$ lifts $\mathcal{K}(D) = \{1\} $ to the uniform distribution on $A$.
+    \item The map $A \times B \rightarrow A$ lifts functions of $A$ to functions of $A$ in $A \times B$.
+  \end{itemize}
+\end{corollary}
 
 
-\subsubsection{Bayesian Projections as Classical Wave Function Collapse}
+\subsection{Bayesian Projections as Classical Wave Function Collapse}
 \label{proj}
-We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an subset of $\{\mathit{0},\cdots,\mathit{7}\}$, which we will call
+We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to a subset of $C$, which we will call
 \[
 \begin{split}
-  S &= \{s \in \{\mathit{0},\cdots,\mathit{7}\} | c_1(s) = T, c_2(s) = c_3(s) \} \\
+  S &= \{s \in C | x_1 = T, x_2 = x_3 \} \\
     & = \{\mathit{4},\mathit{7}\} \hspace{0.4 in} \text{(THH, TTT)}
 \end{split}
 \]
-where $c_i(s)$ is the value $x_i$.  We will use $S$ as an example in the remaining text.
+We will use $S$ as an example in the remaining text.
 
 \begin{figure}[h]
 \centering
@@ -160,12 +166,12 @@ where $c_i(s)$ is the value $x_i$.  We will use $S$ as an example in the remaini
 \label{masslessshell}
 \end{figure}
 
-Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.  It is exactly
+Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
 \begin{equation}
 \label{sdist}
 (p_0,\cdots,p_7) = \left(0,0,0,0,\frac{1}{2},0,0,\frac{1}{2}\right)
 \end{equation}
-\subsubsection{Bayesian Inference as General Classical Wave Function Collapse}
+\subsection{Bayesian Inference as General Classical Wave Function Collapse}
 A more general type of measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probabilistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{In the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization.  $P(\mathcal{O})$ only holds significance prior to its observation and it doesn't require consideration during the update process.} version of Bayes's rule
 \[
   \frac{\hat{p_i}}{\hat{p_j}} = \underbrace{\frac{P(i | \mathcal{O})}{P(j | \mathcal{O})}}_\text{Posterior}
@@ -177,13 +183,13 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \]
 A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, like the $S$ projection case in section \ref{proj}.  We call these Bayesian projections.
 
-\subsubsection{Classical Correlation as Classical Entanglement}
+\subsection{Classical Correlation as Classical Entanglement}
 Finally, we can also consider again the distribution (\ref{sdist}). We know the first coin is T, which we promptly throw away.
 
 We have $HH$ or $TT$ with equal probabilities for the second and third coins.  If we give the second coin to Alice and the third coin to Bob then we have a classical correlation.  If Bob finds that the third coin is $T$ then we know that Alice will also find that the second coin is $T$ (and similarly for $F$).  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.  Classical correlation should be very familiar from every day experience.
 
-\subsection{Quantum Information Theory}
-\subsubsection{Classical to Quantum Embedding}
+\section{Quantum Information Theory}
+\subsection{Classical to Quantum Embedding}
 General quantum information\footnote{We are purposely leaving out density matrices and POVMs and just dealing with pure states.} about 8-qubits can be expressed as a wave function.
 \[
    q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
@@ -202,7 +208,7 @@ with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2
 
 So quantum information theory needs to generalize the classical.  In particular, quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
 
-\subsubsection{Bayesian Projection}
+\subsection{Bayesian Projection}
 We illustrate zero phase Bayesian projection with an example.
 
 Within the embedding we define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection
@@ -211,7 +217,7 @@ Within the embedding we define a projection operator $\pi$ which projects onto t
 \]
 Then let $A$ be any operator with an eigenspace, with eigenvalue $\lambda$, equal to the image of $\pi$.  An observation of $\lambda$ would correspond to an application of $\pi$, which is a Bayesian projection in the classical picture.
 
-\subsubsection{Bayesian Inference}
+\subsection{Bayesian Inference}
 Consider, in the fashion of \cite{nielsenchuang}, a more general measurement with matrix $M_\mathcal{O}$ which is diagonal with entries
 \[
    M_\mathcal{O}(i,i) = \sqrt{P(\mathcal{O} | i)}
@@ -219,7 +225,7 @@ Consider, in the fashion of \cite{nielsenchuang}, a more general measurement wit
 This implements classical Bayesian inference using zero phase wavefunctions.
 
 
-\subsubsection{Entropy}
+\subsection{Entropy}
 Von Neumann entropy is left out of this note since it is not a generalization of classical entropy in the manner presented here.  This is because the zero phase classical wavefunctions are pure states which all have zero Von Neumann entropy.
 
 \section{Overview of the Generalization}
