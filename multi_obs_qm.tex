@@ -19,6 +19,9 @@
 \theoremstyle{postulate}
 \newtheorem{postulate}{Postulate}[section]
 
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
 
 \newtheorem{theorem}{Theorem}[section]
 \newtheorem{corollary}{Corollary}[theorem]
@@ -121,36 +124,18 @@ Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we w
 \[
 (x_1,x_2,x_3) \mapsto x_1 \otimes x_2 \otimes x_3.
 \]
-In general the classical knowledge statements about $n$ bit ensembles are normalized element of $V_1 ^ {\otimes n} = \mathcal{V}(\mathbb{Z}_2^n)$.
+
 \begin{lemma}
-  $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$
+  $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$ and the $n$-bit knowledge space $\mathcal{V}(\mathbb{Z}_2^n)$ is $V_1 ^ {\otimes n} \cong \mathbb{R}^{2^n}$.
 \end{lemma}
 \begin{proof}
-  The proof is the same as above.  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.
+  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the rule.
 \end{proof}
-Let $\mathcal{S}$ be the category of nonempty sets with surjections.  Let $\mathcal{W}$ be the category of real vectorspaces with injections.  Then
-\begin{lemma}
-  $\mathcal{K}$ is a contravariant functors from $\mathcal{S}$ to $\mathcal{W}$
-\end{lemma}
-\begin{proof}
-  Let $f:B \rightarrow A$ be a surjection of sets.  Let $\eta = (p_a) \in \mathcal{K}(A)$ so that $\eta$ is a probability distribution on $A$.  We lift $\eta$ to a probability distribution on $B$, $\hat{\eta} = (\hat{p}_b)$,  by taking a uniform distribution on each fiber.  That is we define for $b \in B$
-  \[
-  \hat{p}_b = \frac{1}{|f^{-1}(f(b) )|} p_{f(b)}
-  \]
-This map $\eta \mapsto \hat{\eta}$ is injective.
-\end{proof}
-\begin{corollary}
-  Let $A$ and $B$ be a sets and let $D$ be a set of size 1.
-  \begin{itemize}
-    \item The map $A \rightarrow D$ lifts $\mathcal{K}(D) = \{1\} $ to the uniform distribution on $A$.
-    \item The map $A \times B \rightarrow A$ lifts functions of $A$ to functions of $A$ in $A \times B$.
-  \end{itemize}
-\end{corollary}
+Let $\mathcal{S}$ be the category of nonempty sets.  Let $\mathcal{W}$ be the category of real vectorspaces.  Then
 
-
-\subsection{Bayesian Projections as Classical Wave Function Collapse}
+\subsection{Bayesian Projections}
 \label{proj}
-We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to a subset of $C$, which we will call
+We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to a subset of $C$, which we will call $S$
 \[
 \begin{split}
   S &= \{s \in C | x_1 = T, x_2 = x_3 \} \\
@@ -166,12 +151,16 @@ We will use $S$ as an example in the remaining text.
 \label{masslessshell}
 \end{figure}
 
-Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.
+Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of a projection measurement $\rho$ that updates our knowledge.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and just renormalizes $p_i$ on the remaining $i \in S$.  More specifically, 
 \begin{equation}
 \label{sdist}
-(p_0,\cdots,p_7) = \left(0,0,0,0,\frac{1}{2},0,0,\frac{1}{2}\right)
+\rho: (p_0,\cdots,p_7) \mapsto \left(0,0,0,0, \frac{p_4}{p_4 + p_7},0,0,\frac{p_7}{p_4 + p_7}\right)
 \end{equation}
-\subsection{Bayesian Inference as General Classical Wave Function Collapse}
+which motivates the following
+\begin{definition}[Bayesian Projection]
+  For any finite set $A$ with $B \subseteq A$ we consider a measurment of $B$.  It takes $p_a$ to 0 when $a \not \in B$ and $\frac{p_a}{\sum_{b \in B} p_b}$ when $a \in B$ .  We call this a Bayesian projection.
+\end{definition}
+\subsection{Bayesian Inference}
 A more general type of measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probabilistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{In the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization.  $P(\mathcal{O})$ only holds significance prior to its observation and it doesn't require consideration during the update process.} version of Bayes's rule
 \[
   \frac{\hat{p_i}}{\hat{p_j}} = \underbrace{\frac{P(i | \mathcal{O})}{P(j | \mathcal{O})}}_\text{Posterior}
@@ -181,12 +170,12 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \[
   \hat{p_k} =  P(\mathcal{O} | k) \hspace{0.07 in} p_k.
 \]
-A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, like the $S$ projection case in section \ref{proj}.  We call these Bayesian projections.
+A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, like the $S$ projection case in section \ref{proj}.  These are the  Bayesian projections.
 
-\subsection{Classical Correlation as Classical Entanglement}
+\subsection{Classical Correlation}
 Finally, we can also consider again the distribution (\ref{sdist}). We know the first coin is T, which we promptly throw away.
 
-We have $HH$ or $TT$ with equal probabilities for the second and third coins.  If we give the second coin to Alice and the third coin to Bob then we have a classical correlation.  If Bob finds that the third coin is $T$ then we know that Alice will also find that the second coin is $T$ (and similarly for $F$).  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.  Classical correlation should be very familiar from every day experience.
+We have $HH$ or $TT$ with equal probabilities for the second and third coins.  If we give the second coin to Alice and the third coin to Bob then we have a classical correlation.  If Bob finds that the third coin is $T$ then we know that Alice will also find that the second coin is $T$ (and similarly for $F$).  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.
 
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
