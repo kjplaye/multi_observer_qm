@@ -60,10 +60,10 @@ be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote
 \item $(T,T,H)$
 \item tribit $\mathit{6}$
 \end{itemize}
-Let $C$ be the set of 8 possible tribits $\{HHH,HHT,\cdots,TTT\}$. 
+Let $C$ be the set of 8 possible tribits $\{HHH,HHT,\cdots,TTH, TTT\}$. 
   
 \subsection{Rules for Constructing Knowledge Statements}
-We want to describe knowledge statements\footnote{Whenever we say ``statement'' in this paper, we mean knowledge statement, or Bayesian belief statement.} about the coins.  For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to construct and understand $\mathcal{K}(C)$ by repeatedly applying the following simple rules.
+We want to describe a set of knowledge statements about the coins.  These are to be understood as probabilistic or Bayesian belief statement about $C$.   For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to construct and understand $\mathcal{K}(C)$ by repeatedly applying the following simple rules.
 \begin{postulate}
 \label{rule1}
 For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
@@ -81,7 +81,7 @@ This formal combination means to take statement $s_1$ with probability $\alpha$ 
 
 \subsection{Distributions on the Ensemble}
 
-For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on $A$.  Then $\mathcal{P}(C)$ is the set of probability distributions on tribits. For a fixed $\eta \in \mathcal{P}(C)$ we let $p_i$ be the probability of the tribit $i$ in $\eta$ (for instance $p_\mathit{6}$ is the probability of seeing $TTH$.)  Then the eight $p_i$ completely characterize $\eta$ as the vector $(p_\mathit{0},\cdots,p_\mathit{7}) \in \mathbb{R}^8$.  Call this 8 dimensional ambient space $\mathcal{V}(C)$ (and in general $\mathcal{V}(A) = \mathbb{R}^A$ for set $A$).
+For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on $A$.  Then $\mathcal{P}(C)$ is the set of probability distributions on tribits. For a fixed $\eta \in \mathcal{P}(C)$ we let $p_i(\eta)$ be the probability of seeing the tribit $i$ in $\eta$ (for instance $p_\mathit{6}$ is the probability of seeing $TTH$.)  Then the eight $p_i$ completely characterize $\eta$ as the vector $(p_\mathit{0}(\eta),\cdots,p_\mathit{7}(\eta)) \in \mathbb{R}^8$.  Call this 8 dimensional ambient space $\mathcal{V}(C)$ (and in general $\mathcal{V}(A) = \mathbb{R}^A$ for the set $A$).
 \begin{lemma}
 \label{prob}
   $\mathcal{K}(C)$ = $\mathcal{P}(C)$
@@ -126,7 +126,7 @@ Let $\mathcal{S}$ be the category of nonempty sets.  Let $\mathcal{W}$ be the ca
 $\mathcal{V}$ is a functor from $\mathcal{S}$ to $\mathcal{W}$ that takes injections and surjections to surjections and injections respectively.
 \end{lemma}
 \begin{proof}
-  Let $f:A \hookrightarrow B$ be an injection.  Define $\mathcal{V}(f):\mathcal{V}(B) \twoheadrightarrow \mathcal{V}(A)$ to be an orthogonal projection which is a surjection
+  Let $f:A \hookrightarrow B$ be an injection.  Define $\mathcal{V}(f):\mathcal{V}(B) \twoheadrightarrow \mathcal{V}(A)$ to be an orthogonal projection which takes $\b in B$ as
   \[
      b \mapsto \left\{ \begin{array}{cc} b & \text{ if } b \in A \\ 0 & \text{ if } b \not \in A  \end{array} \right.
   \]
@@ -147,9 +147,9 @@ $\mathcal{V}$ is a functor from $\mathcal{S}$ to $\mathcal{W}$ that takes inject
   \item $d \in Im(s)$, but $s^{-1}(d) \cap Im(r) = \emptyset$
   \item $d \in Im(s \circ r)$
   \end{enumerate}
-  Consider condition \#1.  In this case we have $\mathcal{V}(s)$ sending $d$ to zero.  For condition \#2, $\mathcal{V}(s)$ sends $d$ to a fiber of $s$, but then all of $s^{-1}(d)$ gets sent to zero by $\mathcal{V}(r)$.  For condition \#3, $\mathcal{V}(s)$ sends $d$ to $s^{-1}(d)$ and then that gets sent by $\mathcal{V}(r)$ to the sum over the nonempty $r^{-1}(s^{-1}(d))$.  These cases and behaviors are the same as directly considering $\mathcal{V}(s \circ r)$ where the cases \#1 and \#2 have $d$ getting sent to zero and case \#3 exhibits the same behavior since the $r$ fibers of the fibers of $s$ are just the fibers of $s \circ r$.
+  Consider condition \#1.  In this case we have $\mathcal{V}(s)$ sending $d$ to zero.  For condition \#2, $\mathcal{V}(s)$ sends $d$ to a fiber of $s$, but then all of $s^{-1}(d)$ gets sent to zero by $\mathcal{V}(r)$.  For condition \#3, $\mathcal{V}(s)$ sends $d$ to $s^{-1}(d)$ and then that gets sent by $\mathcal{V}(r)$ to the sum over the nonempty $r^{-1}(s^{-1}(d))$.  These cases and behaviors are the same as directly considering $\mathcal{V}(s \circ r)$ where the cases \#1 and \#2 have $d$ getting sent to zero and case \#3 exhibits the same behavior as the composition since the $r$ fibers of the fibers of $s$ are just the fibers of $s \circ r$.
 
-  This demonstrates the composition property of the functor $\mathcal{V}(s \circ r) = \mathcal{V}(r) \circ \mathcal{V}(s)$. 
+  This demonstrates the composition property of the functor, $\mathcal{V}(s \circ r) = \mathcal{V}(r) \circ \mathcal{V}(s)$. 
 \end{proof}
 
 Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $V_1$.  The 8 dimensional space $V_1 ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $V_1^{\otimes 3}$ by sending
@@ -158,10 +158,11 @@ Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we w
 \]
 
 \begin{lemma}
+\label{product}
   $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$ and the $n$-bit knowledge space $\mathcal{V}(\mathbb{Z}_2^n)$ is $V_1 ^ {\otimes n} \cong \mathbb{R}^{2^n}$.  $\mathcal{A \times B \twoheadrightarrow A}$ identifies $\mathcal{V}(A)$ with $\mathcal{V}(A) \otimes \mathbbm{1}_B$.  The same is true for $B$ and $\mathbbm{1}_A$.
 \end{lemma}
 \begin{proof}
-  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the rule.  The sum over the fiber of $a \in A$ is just $a$ tensored with the sum over $b \in B$ which we call $\mathbbm{1}_B$.
+  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the map to get the formula for $\mathcal{V}(\mathbb{Z}_2^n)$.  For the last expression first write $\mathbbm{1}_B := \sum_{b \in B} b$ then the sum over the fiber of $a \in A$ is just $a \otimes \mathbbm{1}_B$.
 \end{proof}
 
 
@@ -183,15 +184,19 @@ We will use $S$ as an example in the remaining text.
 \label{masslessshell}
 \end{figure}
 
-Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of what we will call a projection measurement $\rho$ that updates our knowledge.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and renormalizes $p_i$ on the remaining $i \in S$.  More specifically, 
+Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of what we will call a projection measurement $\rho$ that updates our knowledge to be in $S$.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and renormalizes $p_i$ on the remaining $i \in S$.  Specifically we have the example on $S$, 
 \begin{equation}
 \label{sdist}
 \rho: (p_0,\cdots,p_7) \mapsto \left(0,0,0,0, \frac{p_4}{p_4 + p_7},0,0,\frac{p_7}{p_4 + p_7}\right)
 \end{equation}
-which motivates the following
+In more generality we have
 \begin{definition}[Bayesian Projection]
 \label{projdef}
-  For any finite set $A$ with $B \subseteq A$ we consider a measurement of $B$.  It takes $p_a$ to 0 when $a \not \in B$ and $\frac{p_a}{\sum_{b \in B} p_b}$ when $a \in B$ .  We call this a Bayesian projection since the ambient spaces follow a projection $\mathcal{V}(B \hookrightarrow A)$.
+For any finite set $A$ with $B \subseteq A$ we consider a measurement of $B$.  It takes
+\[
+p_a \mapsto \left\{ \begin{array}{cc} 0 &\text{ when } a \not \in B \\ \frac{p_a}{\sum_{b \in B} p_b} & \text{ when } a \in B \end{array} \right.
+\]
+We call this a Bayesian projection since the ambient spaces follow a projection $\mathcal{V}(B \hookrightarrow A)$.
 \end{definition}
 \subsection{Classical Bayesian Inference}
 A more general type of measurement is a probabilistic measurement.  Someone could learn that there is a 95\% chance that the state is in $S$.  In full generality we will call such a probabilistic observation $\mathcal{O}$.  We can figure out how to update our knowledge statement from $p_i$, to $\hat{p_i}$, using a relative\footnote{In the ratio, the contribution of $P(\mathcal{O})$ is canceled out and accounted for during normalization.  $P(\mathcal{O})$ only holds significance prior to its observation and it doesn't require consideration during the update process.} version of Bayes's rule
@@ -204,10 +209,10 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \label{inference}
   \hat{p_k} =  P(\mathcal{O} | k) \hspace{0.07 in} p_k.
 \end{equation}
-A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, like the $S$ projection case in section \ref{proj}.  These are the  Bayesian projections see Definition \ref{projdef}.
+A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, which are the  Bayesian projections see Definition \ref{projdef}.
 \begin{definition}[Bayesian Inference]
 \label{infdef}
-  An update of the form (\ref{inference}) is called a Bayesian Inference.
+  An update of the form (\ref{inference}) is called a Bayesian inference.
 \end{definition}
 
 \subsection{Classical Correlation}
@@ -215,25 +220,30 @@ We consider the uniform distribution on $S$.
 \[
 \frac{1}{2}(T \otimes H \otimes H) + \frac{1}{2}(T \otimes T \otimes T)
 \]
-We know the first coin is T, which we promptly throw away.
+We know the first coin is T, which we give to Eve.  She does nothing with her coin.
 
 We have $HH$ or $TT$ with equal probabilities for the second and third coins.  If we give the second coin to Alice and the third coin to Bob then we have a classical correlation.  If Bob finds that the third coin is $T$ then we know that Alice will also find that the second coin is $T$ (and similarly for $F$).  The reduction is purely epistemic, it is the separate knowledge of Alice and Bob that is changing.
 
-\begin{definition}[Correlation]
+\begin{definition}[Classical Correlation]
 \label{corrdef}
-  Two bits are said to be correlated when our knowledge is written as
+In general consider $A \times B$ with surjections $f_A$ and $f_B$ onto $A$ and $B$ respectively.  Consider the set of knowledge statements that factor as products of $\mathcal{V}(f_A)$ and $\mathcal{V}(f_B)$.  From Lemma \ref{product} we see that such a product must be of the form
+\[
+(\mathbbm{1}_A \otimes \eta_B) (\eta_A \otimes \mathbbm{1}_B) = \eta_A \otimes \eta_B
+\]
+where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all other nonfactorable statements ``correlated'' since they do not just come from knowledge statements of $A$ and $B$ independently.  A simple example uses two bits with the following knowledge statement
 \[
   \frac{1}{2} (H \otimes H) + \frac{1}{2} (T \otimes T)
 \]
+
 \end{definition}
 
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
-General quantum information\footnote{We are purposely leaving out density matrices and POVMs and just dealing with pure states.} about 8-qubits can be expressed as a wave function.
+General quantum information\footnote{We are purposely leaving out density matrices and POVMs and just dealing with pure states.} about 3-qubits can be expressed as a wave function.
 \[
    q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
 \]
-with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  Here we can instrument all of the classical information theoretic constructs by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
+with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  Next we will instrument all of the classical information theoretic constructs in the previous section by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
 
 {
 \renewcommand{\arraystretch}{0.1}
@@ -245,12 +255,12 @@ with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2
 \]
 }
 
-So quantum information theory needs to generalize the classical.  In particular we will see that quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
+In doing so, we will see that quantum information theory needs to generalize the classical.  In particular we will see that quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
 
 \subsection{Quantum Bayesian Projection}
 We illustrate zero phase Bayesian projection with an example.
 
-Within the embedding we define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection
+For an example we define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection
 \[
 \pi = \sum_{i \in S} \ket{i} \bra{i}.
 \]
@@ -283,17 +293,17 @@ This measurement is identical to the classical Bayesian inference for zero phase
 
 \subsection{Quantum Entanglement}
 \begin{lemma}
-  A classical correlation knowledge statement becomes an entangled zero phase wavefunction.
+  Classical correlation knowledge statements become entangled zero phase wavefunction.
 \end{lemma}
 \begin{proof}
-  The wavefunction in Definition \ref{corrdef} maps to
+  The example in Definition \ref{corrdef} maps to
   \[
   \frac{1}{\sqrt{2}} (H \otimes H) + \frac{1}{\sqrt{2}} (T \otimes T)
   \]
-which is a entangled Bell state.
+which is a entangled Bell state.  In general, the correlated knowledge statements are exactly the zero phase entangled states.
 \end{proof}
 \subsection{Entropy}
-Von Neumann entropy is left out of this note since it is not a generalization of classical entropy in the manner presented here.  This is because the zero phase classical wavefunctions are pure states which all have zero Von Neumann entropy.
+Von Neumann entropy is left out of this note since it is not a generalization of classical entropy in the embedding presented here.  This is because the zero phase classical wavefunctions are pure states which all have zero Von Neumann entropy.
 
 \section{Overview of the Generalization}
 
