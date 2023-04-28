@@ -52,23 +52,18 @@ Let us describe the situation once we throw the 3 coins.  We move freely between
 \[
 x_i \in \{H,T\}
 \]
-be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  For example the tribit $\mathit{6}$ has any of the following forms
-\begin{itemize}
-\item $110$
-\item $TTH$
-\item $(1,1,0)$
-\item $(T,T,H)$
-\item tribit $\mathit{6}$
-\end{itemize}
-Let $C$ be the set of 8 possible tribits $\{HHH,HHT,\cdots,TTH, TTT\}$. 
+be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  Let $C$ be the set of 8 possible tribits
+\[
+ C = \{HHH,HHT,\cdots,TTH, TTT\} = \{\mathit{0},\cdots,\mathit{7}\}
+\]
   
-\subsection{Rules for Constructing Knowledge Statements}
-We want to describe a set of knowledge statements about the coins.  These are to be understood as probabilistic or Bayesian belief statements about $C$.   For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to construct and understand $\mathcal{K}(C)$ by repeatedly applying the following simple rules.
+\subsection{Postulates for Constructing Knowledge Statements}
+For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to motivate by example, constructing and understanding knowledge statements about $C$, $\mathcal{K}(C)$, before moving to general finite sets.  We do this by repeatedly applying the following simple postulates.
 \begin{postulate}
 \label{rule1}
 For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
 \end{postulate}
-There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.
+There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.  Each statement is a seperate kind of knowledge about the tribit.  We only hold one knowledge statement at any given time.
 \begin{postulate}
  \label{rule2}
   A formal superposition can be made for any statements $s_1 \in \mathcal{K}(C)$ and $s_2 \in \mathcal{K}(C)$ and $\alpha \in [0,1]$
@@ -81,27 +76,29 @@ This formal combination means to take statement $s_1$ with probability $\alpha$ 
 
 \subsection{Distributions on the Ensemble}
 
-For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on $A$.  Then $\mathcal{P}(C)$ is the set of probability distributions on tribits. For a fixed $\eta \in \mathcal{P}(C)$ we let $p_i(\eta)$ be the probability of seeing the tribit $i$ in $\eta$ (for instance $p_\mathit{6}$ is the probability of seeing $TTH$.)  Then the eight $p_i$ completely characterize $\eta$ as the vector $(p_\mathit{0}(\eta),\cdots,p_\mathit{7}(\eta)) \in \mathbb{R}^8$.  Call this 8 dimensional ambient space $\mathcal{V}(C)$ (and in general $\mathcal{V}(A) = \mathbb{R}^A$ for the set $A$).
+For any set $A$ let $\mathcal{P}(A)$ be the set of probability distributions on $A$.  Then $\mathcal{P}(C)$ is the set of probability distributions on tribits. For a fixed $\eta \in \mathcal{P}(C)$ we let $p_i(\eta)$ be the probability of seeing the tribit $i$ under $\eta$.  For an example, consider the tribit $\mathit{6} = TTH$.  $p_\mathit{6}$ is the probability of seeing $\mathit{6}$ under $\eta$.
+
+The eight $p_i$ completely characterize $\eta$ as the vector $(p_\mathit{0}(\eta),\cdots,p_\mathit{7}(\eta)) \in \mathbb{R}^8$.  Call this 8 dimensional ambient space $\mathcal{V}(C)$. In general $\mathcal{V}(A) = \mathbb{R}^A$ for the set $A$.  We identify any $a \in A$ with the basis element $b_a$.  In this way we map $A \hookrightarrow \mathcal{V}(A)$.
 \begin{lemma}
 \label{prob}
   $\mathcal{K}(C)$ = $\mathcal{P}(C)$
 \end{lemma}
 \begin{proof}
-  Let $\eta \in \mathcal{K}(C)$.  The rules \ref{rule1} and \ref{rule2}, that form $\eta$, output probability distributions at every step.  So $\eta \in \mathcal{P}(C)$.
+  Let $\eta \in \mathcal{K}(C)$.  The Postulates \ref{rule1} and \ref{rule2}, that form $\eta$, output probability distributions at every step.  So $\eta \in \mathcal{P}(C)$.
   
-  Next let $\eta = (p_i) \in \mathcal{P}(C)$.  We inductively extend the distribution
+  WLOG we can assume that $p_0 \not = 0$.  Let $\eta = (p_i) \in \mathcal{P}(C)$.  We inductively extend the distribution
   \[
-  \eta_k = \gamma_k (p_0, \cdots, p_{k-1}, 0, \cdots)
+  \eta_k = \gamma_k (p_0, \cdots, p_{k-1}, 0, \cdots, 0)
   \]
   to
   \[
-  \eta_{k+1} = \gamma_{k+1} (p_0, \cdots, p_{k}, 0, \cdots)
+  \eta_{k+1} = \gamma_{k+1} (p_0, \cdots, p_{k}, 0, \cdots, 0)
   \]
   using basic $b_k$ and 
   \[
   \eta_{k+1} = super_\alpha(\eta_k,b_k)
   \]
-  for appropriate choices of normalizations $\gamma_k, \gamma_{k+1}$ and $\alpha$. So we have a sequence of rules that form $\eta$ and hence $\eta \in \mathcal{K}(C)$.
+  for appropriate choices $\alpha$ and of normalizations $\gamma_k, \gamma_{k+1}$. So we have applied a sequence of Postulates that form $\eta$ and hence $\eta \in \mathcal{K}(C)$.
 \end{proof}
 
 \begin{corollary}
@@ -126,16 +123,17 @@ Let $\mathcal{S}$ be the category of sets.  Let $\mathcal{W}$ be the category of
 $\mathcal{V}$ is a contravariant functor from $\mathcal{S}$ to $\mathcal{W}$ that takes injections and surjections to surjections and injections respectively.
 \end{lemma}
 \begin{proof}
-  Let $f:A \hookrightarrow B$ be an injection.  Define $\mathcal{V}(f):\mathcal{V}(B) \twoheadrightarrow \mathcal{V}(A)$ to be an orthogonal projection which maps $b \in B$ as follows
+  Let $f:A \hookrightarrow B$ be an injection. Consider the map for $b \in B$ to $\mathcal{V}(A)$ to be as follows
   \[
      b \mapsto \left\{ \begin{array}{cc} b & \text{ if } b \in A \\ 0 & \text{ if } b \not \in A  \end{array} \right.
-  \]
+     \]
+We extend this map linearly to form the orthogonal projection $\mathcal{V}(f):\mathcal{V}(B) \twoheadrightarrow \mathcal{V}(A)$.
 
-  Now let $g:A \twoheadrightarrow B$ be a surjection.  Define $\mathcal{V}(g):\mathcal{V}(B) \hookrightarrow  \mathcal{V}(A)$ to send each $b \in B$ to the sum over the fiber of $b$.  That is we send
+Now let $g:A \twoheadrightarrow B$ be a surjection.  Consider the map for each $b \in B$ to the sum over the fiber of $b$.
   \[
   b \mapsto \sum_{a \in g^{-1}(b)} a.
-\]
-  Each of these fibers is disjoint so the map is injective.
+  \]
+We linearly extend this to the map $\mathcal{V}(g):\mathcal{V}(B) \hookrightarrow  \mathcal{V}(A)$.  Each of these fibers is disjoint so the map is injective.
 
   Consider a general map $h:A \rightarrow B$.  We write this map as a surjection onto the image followed by an injection  $A \twoheadrightarrow Im(h) \hookrightarrow B$.  We then send $h$ to
  \[
