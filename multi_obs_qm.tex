@@ -145,6 +145,13 @@ We linearly extend this to the map $\mathcal{V}(g):\mathcal{V}(B) \hookrightarro
   \item $d \in Im(s)$, but $s^{-1}(d) \cap Im(r) = \emptyset$
   \item $d \in Im(s \circ r)$
   \end{enumerate}
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.6]{functor.png}
+%\caption{Three cases for $s \circ r$}
+\end{figure}
+  
   Consider condition \#1.  In this case we have $\mathcal{V}(s)$ sending $d$ to zero.  For condition \#2, $\mathcal{V}(s)$ sends $d$ to a fiber of $s$, but then all of $s^{-1}(d)$ gets sent to zero by $\mathcal{V}(r)$.  For condition \#3, $\mathcal{V}(s)$ sends $d$ to $s^{-1}(d)$ and then that gets sent by $\mathcal{V}(r)$ to the sum over the nonempty $r^{-1}(s^{-1}(d))$.  These cases and behaviors are the same as directly considering $\mathcal{V}(s \circ r)$ where the cases \#1 and \#2 have $d$ getting sent to zero and case \#3 exhibits the same behavior as the composition since the $r$ fibers of the fibers of $s$ are just the fibers of $s \circ r$.
 
   This demonstrates the composition property of the functor, $\mathcal{V}(s \circ r) = \mathcal{V}(r) \circ \mathcal{V}(s)$.
@@ -179,7 +186,6 @@ We will use $S$ as an example in the remaining text.
 \centering
 \includegraphics[scale=0.6]{cube.png}
 \caption{Coin sequences with $S$ circled in yellow.}
-\label{masslessshell}
 \end{figure}
 
 Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of what we will call a projection measurement $\rho$ that updates our knowledge to be in $S$.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and renormalizes $p_i$ on the remaining $i \in S$.  Specifically we have for the example on $S$, 
@@ -264,9 +270,9 @@ For an example we define a projection operator $\pi$ which projects onto the spa
 \pi = \sum_{i \in S} \ket{i} \bra{i}.
 \]
 Then let $A$ be any operator with an eigenspace, with eigenvalue $\lambda$, equal to the image of $\pi$.  An observation of $\lambda$ would correspond to an application of $\pi$, which is a Bayesian projection as in Definition \ref{projdef}.
-\begin{lemma}
+\begin{theorem}
   The set inclusion $B \subseteq A$ yields a Bayesian Projection as in Definition \ref{projdef}.  Then a zero phase wavefunction instruments the classical measurement.
-\end{lemma}
+\end{theorem}
 \begin{proof}
 Let $q_i = \sqrt{p_i}$ be a zero phase wavefunction corresponding to $(p_i) \in \mathcal{K}$.  Let
   \[
@@ -279,9 +285,9 @@ and define an operator
 If we make a measurement of $1$, in $D$, then the wave function collapses by projecting onto the eigenspace of $1$. The wave function is then renormalized.  This projection on the $B$-space and normalization of $q_i$ exactly matches the classical Bayesian projection and normalization of $p_i$.
 \end{proof}
 \subsection{Quantum Bayesian Inference}
-\begin{lemma}
+\begin{theorem}
   Let $P(\mathcal{O} | i)$ define a Bayesian inference as in Definition \ref{infdef}.  Then a zero phase wavefunction instruments the classical measurement.
-\end{lemma}
+\end{theorem}
 \begin{proof}
 Consider, in the fashion of \cite{nielsenchuang}, a more general measurement with matrix $M_\mathcal{O}$ which is diagonal with entries
 \[
@@ -291,9 +297,9 @@ This measurement is identical to the classical Bayesian inference for zero phase
 \end{proof}
 
 \subsection{Quantum Entanglement}
-\begin{lemma}
+\begin{theorem}
   Classical correlation knowledge statements become entangled zero phase wavefunction.
-\end{lemma}
+\end{theorem}
 \begin{proof}
   The example (\ref{classiccorr}) in Definition \ref{corrdef} maps to
   \[
