@@ -58,12 +58,12 @@ be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote
 \]
   
 \subsection{Postulates for Constructing Knowledge Statements}
-For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Our goal will be to motivate by example, constructing and understanding knowledge statements about $C$, $\mathcal{K}(C)$, before moving to general finite sets.  We do this by repeatedly applying the following simple postulates.
+For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Motivating by example, we construct and understand knowledge statements $\mathcal{K}(C)$ for $C$.  We do this by repeatedly applying the following simple postulates.
 \begin{postulate}
 \label{rule1}
 For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
 \end{postulate}
-There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.  Each statement is a seperate kind of knowledge about the tribit.  We only hold one knowledge statement at any given time.
+There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.  Each statement is a separate kind of knowledge about the tribit.  We only hold one knowledge statement at any given time.
 \begin{postulate}
  \label{rule2}
   A formal superposition can be made for any statements $s_1 \in \mathcal{K}(C)$ and $s_2 \in \mathcal{K}(C)$ and $\alpha \in [0,1]$
@@ -129,7 +129,7 @@ $\mathcal{V}$ is a contravariant functor from $\mathcal{S}$ to $\mathcal{W}$ tha
      \]
 We extend this map linearly to form the orthogonal projection $\mathcal{V}(f):\mathcal{V}(B) \twoheadrightarrow \mathcal{V}(A)$.
 
-Now let $g:A \twoheadrightarrow B$ be a surjection.  Consider the map for each $b \in B$ to the sum over the fiber of $b$.
+Now let $g:A \twoheadrightarrow B$ be a surjection.  Consider the map for each $b \in B$ to the sum over the fiber of $b$
   \[
   b \mapsto \sum_{a \in g^{-1}(b)} a.
   \]
@@ -157,7 +157,7 @@ We linearly extend this to the map $\mathcal{V}(g):\mathcal{V}(B) \hookrightarro
   This demonstrates the composition property of the functor, $\mathcal{V}(s \circ r) = \mathcal{V}(r) \circ \mathcal{V}(s)$.
 \end{proof}
 
-Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $V_1$.  The 8 dimensional space $V_1 ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $V_1^{\otimes 3}$ by sending
+Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $V_1$.  The 8 dimensional space $V_1 ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $V_1^{\otimes 3}$ by linearly extending
 \[
 (x_1,x_2,x_3) \mapsto x_1 \otimes x_2 \otimes x_3.
 \]
@@ -167,13 +167,13 @@ Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we w
   $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$ and the $n$-bit knowledge space $\mathcal{V}(\mathbb{Z}_2^n)$ is $V_1 ^ {\otimes n} \cong \mathbb{R}^{2^n}$.  $\mathcal{V}(A \times B \twoheadrightarrow A)$ identifies $\mathcal{V}(A)$ with $\mathcal{V}(A) \otimes \mathbbm{1}_B$.  The same is true for $B$ and $\mathbbm{1}_A$.
 \end{lemma}
 \begin{proof}
-  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the map to get the formula for $\mathcal{V}(\mathbb{Z}_2^n)$.  For the last expression first write $\mathbbm{1}_B := \sum_{b \in B} b$ then the sum over the fiber of $a \in A$ is just $a \otimes \mathbbm{1}_B$.
+  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the map to get the formula for $\mathcal{V}(\mathbb{Z}_2^n)$.  For the last expression write $\mathbbm{1}_B := \sum_{b \in B} b$ then the sum over the fiber of $a \in A$ is $a \otimes \mathbbm{1}_B$.  The same argument applies when reversing $a/A$ and $b/B$.
 \end{proof}
 
 
 \subsection{Classical Bayesian Projections}
 \label{proj}
-We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to a subset of $C$, which we will call $S$
+We don't always get to measure the exact tribit.  For instance, we might only get to know that the first coin is $T$ and that the 2nd and 3rd coins are the same.  This corresponds to an exemplar subset of $C$, which we will call $S$
 \[
 \begin{split}
   S &= \{s \in C | x_1 = T, x_2 = x_3 \} \\
@@ -188,7 +188,7 @@ We will use $S$ as an example in the remaining text.
 \caption{Coin sequences with $S$ circled in yellow.}
 \end{figure}
 
-Someone could make a measurement that tells them that the state is in $S$ and nothing else.  This would be a specific case of what we will call a projection measurement $\rho$ that updates our knowledge to be in $S$.  The statement becomes zero exactly on $p_i$ where $i \not \in S$ and renormalizes $p_i$ on the remaining $i \in S$.  Specifically we have for the example on $S$, 
+Someone could make a measurement that tells them that the tribit is in $S$ and nothing else.  This would be a specific case of what we will call a projection measurement, $\rho$, that updates our knowledge to be in $S$.  The statement becomes zero exactly on tribits $i$ where $i \not \in S$ and renormalizes $p_i$ on the remaining $i \in S$.  Specifically we have for the example on $S$, 
 \begin{equation}
 \label{sdist}
 \rho: (p_0,\cdots,p_7) \mapsto \left(0,0,0,0, \frac{p_4}{p_4 + p_7},0,0,\frac{p_7}{p_4 + p_7}\right)
@@ -208,12 +208,12 @@ A more general type of measurement is a probabilistic measurement.  Someone coul
   \frac{\hat{p_i}}{\hat{p_j}} = \underbrace{\frac{P(i | \mathcal{O})}{P(j | \mathcal{O})}}_\text{Posterior}
                               = \underbrace{\frac{P(\mathcal{O} | i)}{P(\mathcal{O}|j)}}_\text{Bayes Factor}  \hspace{0.07 in}  \underbrace{\frac{p_i}{p_j}}_\text{Prior}
 \]
-Pulling out the Bayes factor we find that we just multiply by the likelihood and re-normalize
+Pulling out the Bayes factor we find that we just multiply by the likelihood and re-normalize by $\gamma$
 \begin{equation}
 \label{inference}
-  \hat{p_k} =  P(\mathcal{O} | k) \hspace{0.07 in} p_k.
+  \hat{p_k} =  \gamma P(\mathcal{O} | k) \hspace{0.07 in} p_k.
 \end{equation}
-A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for some fixed value $v$, which are the  Bayesian projections see Definition \ref{projdef}.
+A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for a fixed value $v$, which are the  Bayesian projections see Definition \ref{projdef}.
 \begin{definition}[Bayesian Inference]
 \label{infdef}
   An update of the form (\ref{inference}) is called a Bayesian inference.
@@ -234,7 +234,7 @@ In general consider $A \times B$ with surjections $f_A$ and $f_B$ onto $A$ and $
 \[
 (\mathbbm{1}_A \otimes \eta_B) (\eta_A \otimes \mathbbm{1}_B) = \eta_A \otimes \eta_B
 \]
-where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all other nonfactorable statements ``correlated'' since they do not just come from knowledge statements of $A$ and $B$ independently.  A simple example uses two bits with the following knowledge statement
+where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all other nonfactorable statements ``correlated'' since they do not directly come from knowledge statements of $A$ and $B$ independently.  A simple example uses two bits with the following knowledge statement
 \begin{equation}
 \label{classiccorr}
   \frac{1}{2} (H \otimes H) + \frac{1}{2} (T \otimes T) 
@@ -248,7 +248,7 @@ General quantum information\footnote{We are purposely leaving out density matric
 \[
    q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
 \]
-with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  Next we will instrument all of the classical information theoretic constructs in the previous section by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
+with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  In the following subsections we will instrument all of the classical information theoretic constructs in the previous section by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
 
 {
 \renewcommand{\arraystretch}{0.1}
@@ -263,9 +263,7 @@ with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2
 In doing so, we will see that quantum information theory needs to generalize the classical.  In particular we will see that quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
 
 \subsection{Quantum Bayesian Projection}
-We illustrate zero phase Bayesian projection with an example.
-
-For an example we define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection
+We illustrate zero phase Bayesian projection with an example.  For the example we define a projection operator $\pi$ which projects onto the space generated by the subset $S$, from the previous subsection
 \[
 \pi = \sum_{i \in S} \ket{i} \bra{i}.
 \]
@@ -312,7 +310,7 @@ Von Neumann entropy is left out of this note since it is not a generalization of
 
 \section{Overview of the Generalization}
 
-The quantum mechanical concepts wave function collapse, entanglements and ensembles are direct generalizations of the classical information theoretic concepts of Bayesian inference, correlation and statistical ensembles respectively.  This is not to say that they are not strange, but to say that they need to be generalizations of the classical concepts.  Wave function collapsing should generalize Bayesian inference and classical measurement.  Entanglement should be a generalization of classical correlation.  This is enough to motivate new ways of doing quantum mechanics, which we will encounter in the next sections.
+The quantum mechanical concepts wave function collapse, entanglements and ensembles are generalizations of the classical information theoretic concepts of Bayesian inference, correlation and statistical ensembles respectively.  This is not to say that they are not strange, but to say that they need to be generalizations of the classical concepts.  Wave function collapsing should generalize Bayesian inference and classical measurement.  Entanglement should be a generalization of classical correlation.  This is enough to motivate new ways of doing quantum mechanics, which we will encounter in the next sections.
 
 \subsection{Multi-Observer Quantum Mechanics}
 We focus on quantum wave function collapse as a generalization of classical Bayesian inference.  We can implement the classical Bayesian inference within zero phase quantum mechanics as outlined above.  So the classical Bayesian theory has a direct tie in; that observation and measurement occur in tandem with a change in knowledge\footnote{This change in knowledge is tangible, it always occurs as a transfer of matter/energy from the environment to the observer \cite{thrust}.}.  
