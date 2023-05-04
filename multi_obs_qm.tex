@@ -58,12 +58,12 @@ be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote
 \]
   
 \subsection{Postulates for Constructing Knowledge Statements}
-For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Motivating by example, we construct and understand knowledge statements $\mathcal{K}(C)$ for $C$.  We do this by repeatedly applying the following simple postulates.
+For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Motivating by example, we construct and present knowledge statements $\mathcal{K}(C)$ for $C$.  We do this by repeatedly applying the following simple postulates.
 \begin{postulate}
 \label{rule1}
 For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
 \end{postulate}
-There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.  Each statement is a separate kind of knowledge about the tribit.  We only hold one knowledge statement at any given time.
+There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.  Each statement is a separate kind of knowledge about the tribit.  A physical constraint is that an observer can only hold one knowledge statement at any given time.  In contrast, a knowledge statement itself may represent more than one possibility simultanously, as is the case in the next Postulate.
 \begin{postulate}
  \label{rule2}
   A formal superposition can be made for any statements $s_1 \in \mathcal{K}(C)$ and $s_2 \in \mathcal{K}(C)$ and $\alpha \in [0,1]$
@@ -167,7 +167,7 @@ Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we w
   $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$ and the $n$-bit knowledge space $\mathcal{V}(\mathbb{Z}_2^n)$ is $V_1 ^ {\otimes n} \cong \mathbb{R}^{2^n}$.  $\mathcal{V}(A \times B \twoheadrightarrow A)$ identifies $\mathcal{V}(A)$ with $\mathcal{V}(A) \otimes \mathbbm{1}_B$.  The same is true for $B$ and $\mathbbm{1}_A$.
 \end{lemma}
 \begin{proof}
-  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the map to get the formula for $\mathcal{V}(\mathbb{Z}_2^n)$.  For the last expression write $\mathbbm{1}_B := \sum_{b \in B} b$ then the sum over the fiber of $a \in A$ is $a \otimes \mathbbm{1}_B$.  The same argument applies when reversing $a/A$ and $b/B$.
+  We map the $|A|\cdot|B|$ basis elements $(a,b) \mapsto a \otimes b$.  The linear extension of the map is an isomorphism.  For $n$-bits we repeatedly apply the map to get the formula for $\mathcal{V}(\mathbb{Z}_2^n)$.  For the last expression write $\mathbbm{1}_B := \sum_{b \in B} b$ then the sum over the fiber of $a \in A$ is $a \otimes \mathbbm{1}_B$.  The same argument applies when reversing $a$ and $A$ with $b$ and $B$.
 \end{proof}
 
 
@@ -213,11 +213,13 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \label{inference}
   \hat{p_k} =  \gamma P(\mathcal{O} | k) \hspace{0.07 in} p_k.
 \end{equation}
-A special case are projections $P(\mathcal{O} | k) \in \{0,v\}$, for a fixed value $v$, which are the  Bayesian projections see Definition \ref{projdef}.
 \begin{definition}[Bayesian Inference]
 \label{infdef}
   An update of the form (\ref{inference}) is called a Bayesian inference.
 \end{definition}
+\begin{corollary}
+A special case are two-leveled projections $P(\mathcal{O} | k) \in \{0,v\}$, for a fixed value $v$ determined by normalization.  These are the Bayesian projections from Definition \ref{projdef}.
+\end{corollary}
 
 \subsection{Classical Correlation}
 We consider the uniform distribution on $S$.
@@ -248,7 +250,7 @@ General quantum information\footnote{We are purposely leaving out density matric
 \[
    q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
 \]
-with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  In the following subsections we will instrument all of the classical information theoretic constructs in the previous section by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
+with $\sum |q_i|^2 = 1$.  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  In the following subsections we will instrument all of the classical information theoretic constructs from the previous section by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$; which commutes with the Born rule (subject to normalization):
 
 {
 \renewcommand{\arraystretch}{0.1}
@@ -306,7 +308,7 @@ This measurement is identical to the classical Bayesian inference for zero phase
 which is a entangled Bell state.  In general, the correlated knowledge statements are exactly the zero phase entangled states.
 \end{proof}
 \subsection{Entropy}
-Von Neumann entropy is left out of this note since it is not a generalization of classical entropy in the embedding presented here.  This is because the zero phase classical wavefunctions are pure states which all have zero Von Neumann entropy.
+Von Neumann entropy is left out of this note since it is not a generalization of classical entropy in the embedding presented here.  This is because the zero phase classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic statements.
 
 \section{Overview of the Generalization}
 
