@@ -239,6 +239,15 @@ We have $HH$ or $TT$ with equal probabilities for the second and third coins.  I
 
 Up until now we have been treating the coins in only one frame of reference, say the lab technician Lena's frame.  But we are now faced with at least two other observers, Alice and Bob.  Each of these observers has a different subjective knowledge of the coins.  They independently learn through observation and adjust their knowledge accordingly.  Also, there is a compatibility condition that they have to be consistent if they get back together.
 
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.0]{allice_and_bob.png}
+\caption{Various observers}
+\label{anb}
+\end{figure}
+
+
 The observers all undergo Bayesian projections here. The separate knowledge of Alice and Bob is changing due to observation.
 
 \begin{definition}[Classical Correlation]
@@ -255,8 +264,32 @@ where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all 
 
 \end{definition}
 
+\subsection{Entropy of Bayesian Projections, Classical Measurement and Correlations}
+\label{entropy}
+Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding presented in section \ref{embed}.  This is because the embedded classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic statements.
+
+Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  Measurement is a context change which extends what we call the observer to include the measurement itself.  There is corresponding energy gain by the observer for the stored information.  For example, an ancillary bound electron might gain some energy depending on a measurement.  In this way, no net loss in entropy occurs, since the observer stores the measurement.
+
+Other observers outside of this interaction will just see the observer and ancillary environment becoming correlated.  Outside observers have to measure the system themselves to update their knowledge.
+
+\begin{lemma}
+A nontrivial projection measurement decreases the entropy.
+\end{lemma}
+\begin{proof}
+Consider a finite set $X$, the disjoint union $X$ = $X_1 \sqcup X_2$, and a measurement that projects onto $X_2$.  This sends $p_i \rightarrow 0$ for each $i \in X_1$ and renormalizes the elements of $X_2$ by $\sigma = \sum_{i \in X_2} p_i$.  Let $H(X)$ be the original entropy and let $H(\pi)$ be the entropy after the projection.
+\[
+\begin{split}
+H(X) - H(\pi) &= \sum_{i \in X} - p_i \log(p_i) + \sum_{i \in X_2} \frac{p_i}{\sigma} \log\left(\frac{p_i}{\sigma}\right) \\
+              &= \left(\sum_{i \in X_1} - p_i \log(p_i)\right) + \left(\sum_{i \in X_2} \left(-p_i + \frac{p_i}{\sigma}\right) \log(p_i) \right) - log(\sigma) \\
+              &\ge 0
+\end{split}
+\]
+Where the equality occurs exactly when $p_i = 0$ for all $i \in X_1$ and $\sigma = 1$, which is when the projection is trivial. 
+\end{proof}
+
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
+\label{embed}
 General quantum information\footnote{We are purposely leaving out density matrices and POVMs and just dealing with pure states.} about 3-qubits can be expressed as a wave function.
 \[
    q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
@@ -276,7 +309,7 @@ with $\sum |q_i|^2 = 1$; compare to the positive real case in equation (\ref{peq
 In doing so, we will see that quantum information theory needs to instrument the classical.  In particular we will see that quantum measurement and entanglement restrict to classical measurement and classical correlation for zero phase.
 
 \subsection{Quantum Bayesian Projection}
-We illustrate zero phase Bayesian projection with an example.  For the running example we define a projection which sends the 6 tribits that are not in $S$ to zero, but send the 2 tribits in $S$ to themselves.  In quantum notation we can write this as an operator $\pi$ 
+We illustrate zero phase Bayesian projection with an example.  For the running example we define a projection which sends the 6 tribits that are not in $S$ to zero, but sends the 2 tribits in $S$ to themselves.  In quantum notation we can write this as an operator $\pi$ 
 \[
 \pi = \ket{TFF} \bra{TFF} + \ket{TTT} \bra{TTT}
 \]
@@ -293,7 +326,7 @@ and define an operator
 \[
   D = \sum_{i \in A} \lambda_i \ket{i} \bra{i}
 \]
-If we make a measurement of $1$, in $D$, then the wave function collapses by projecting onto the eigenspace of $1$. The wave function is then renormalized.  This projection on the $B$-space and normalization of $q_i$ exactly matches the classical Bayesian projection and normalization of $p_i$.
+We take a measurement of $(p_i)$ with respect to $D$. If we measure $1$, then the wave function collapses by projecting onto the eigenspace of $1$. The wave function is then renormalized.  This projection on the $B$-space and normalization of $q_i$ exactly matches the classical Bayesian projection and normalization of $p_i$.
 \end{proof}
 \subsection{Quantum Bayesian Inference}
 \begin{theorem}
@@ -313,22 +346,31 @@ This measurement is identical to the classical Bayesian inference for zero phase
 \end{theorem}
 \begin{proof}
   The example (\ref{classiccorr}) in Definition \ref{corrdef} maps to
-  \[
+ \begin{equation}
+  \label{bell}
   \frac{1}{\sqrt{2}} (H \otimes H) + \frac{1}{\sqrt{2}} (T \otimes T)
-  \]
+\end{equation}
 which is an entangled Bell state.  In general, the correlated knowledge statements are exactly the zero phase entangled states.
 \end{proof}
-\subsection{Entropy}
-Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding presented here.  This is because the zero phase classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic statements.
+It may be useful to track the wavefunctions $\psi_A$, $\psi_B$, $\psi_E$, and $\psi_L$ for the four separate observers in Figure \ref{anb}.  Alice and Bob each get a qubit
+\[
+\begin{split}
+  \psi_A &= \frac{1}{\sqrt{2}}\ket{H} + \frac{1}{\sqrt{2}}\ket{T} \\
+  \psi_B &= \frac{1}{\sqrt{2}}\ket{H} + \frac{1}{\sqrt{2}}\ket{T} \\
+\end{split}
+\]
+which they look at separately.  Without loss of generality, $\psi_A$ and $\psi_B$ each collapse independently to $\ket{H}$ (or $\ket{T}$).  See section \ref{entropy} for a discussion on measurement and entanglement.  There we see that the outside observer Eve sees Alice and Bob becoming entangled with the qubits.  From Eve's point of view, the situation remains entangled with Alice and Bob's observations within $\psi_E$ in (\ref{bell}).
+
+Alice and Bob don't initially communicate, but when they do, they agree with each other.  Eve may communicate with Alice and Bob learning the bit.  Lena at some later time communicates with Alice, Bob, and Eve to learn the bit for herself in $\psi_L$.
 
 \section{Overview of the Generalization}
 
 The quantum mechanical wave function collapse, entanglements and ensembles generalize the classical information theoretic concepts of Bayesian inference, correlation and statistical ensembles respectively.  Wave function collapsing instruments Bayesian inference and classical measurement.  Entanglement instruments classical correlation.  We are not claiming that wavefunctions are ``just'' knowledge statements, but that they are ``at least'' knowledge statements.  This is enough to motivate new ways of doing quantum mechanics, generalizations which we will encounter in the next sections.
 
 \subsection{Multi-Observer Quantum Mechanics}
-We focus on quantum wave function collapse as a generalization of classical Bayesian inference.  We can implement the classical Bayesian inference within zero phase quantum mechanics as outlined above.  So the classical Bayesian theory has a direct tie in; that observation and measurement occur in tandem with a change in knowledge\footnote{This change in knowledge is tangible, it always occurs as a transfer of matter/energy from the environment to the observer \cite{thrust}.}.  
+We focus on quantum wave function collapse as a generalization of classical Bayesian inference.  We can implement the classical Bayesian inference within zero phase quantum mechanics as outlined above.  So the classical Bayesian theory has a direct tie in; that measurement occurs in tandem with a change in knowledge\footnote{This change in knowledge is tangible, it always occurs as a transfer of matter/energy from the environment to the observer \cite{thrust}.}.  
 
-In the classical theory, knowledge is local to the observer\footnote{Note that current quantum theory is a theory of one observer, usually the experimenter in a lab.  An immediate subject is quantum key distribution(QKD), which requires at least three observers, Alice, Bob, and Eve; the security of QKD depends on multi-observer quantum ontology.}, multiple observers each have their own knowledge.  For instance, Wigner's friend and Wigner each have their own classical knowledge.  It would seem then that Wigner's friend and Wigner must have different zero phase wavefunctions as well, if they are to be generalizing classical knowledge.  This is our prediction for multi-observer quantum physics, that every observer has a local wavefunction. 
+In the classical theory, knowledge is local to the observer\footnote{Note that current quantum theory is a theory of one observer, usually the experimenter in a lab.  An immediate subject is quantum key distribution(QKD), which requires at least three observers, Alice, Bob, and Eve; the security of QKD depends on multi-observer quantum ontology.}, multiple observers each have their own knowledge.  For instance, Wigner's friend and Wigner each have their own classical knowledge.  It would seem then that Wigner's friend and Wigner must have different zero phase wavefunctions as well, if they are to be generalizing classical knowledge.  This is our prediction for multi-observer quantum physics, that every observer has a unique local wavefunction. 
 
 \subsection{Prediction and Experiment}
 
@@ -340,7 +382,17 @@ We predict that multi-observer quantum mechanics will be required for a proper g
 \end{itemize}
 Let $\phi$ be the lab technician's wavefunction.  In $\phi$ the apparatus is entangled with the subject particles in the eraser experiment.  We need to find out if there is another wavefunction in play that is not just part of $\phi$.  The key here is that the apparatus is able to demonstrate that it ``knew'' something, or in other words that another wavefunction $\psi$ existed, using $\rho$.
 
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.3]{experiment.png}
+\caption{Generic experimental set up.  The laboratory has a wave function $\phi$ that includes the experimental apparatus, the technician, and the photon.  The apparatus interacts with the photon, making measurements which are encoded into an ephemeral local wave function $\psi$.  From the laboratory's point of view, the photon and the apparatus are entangled.  The temporary existence of $\psi$ manifests as a phase shift on the top path.  This would be evident in the interference pattern existing and shifting, which we call $\rho$.}
+\label{anb}
+\end{figure}
+
 The apparatus can not keep $\psi$ for proper erasure, but must ``forget'' it.  Observed erasure, via an interference pattern, proves that $\psi$ is not a part of $\phi$.  Finally, there should be a record $\rho$ in the apparatus that it did at one point in time record a measurement $\psi$.  Receipt of the report $\rho$ and eraser interference pattern together show that $\psi$ and $\phi$ were necessarily part of a two-observer system.
+
+\subsection{A Overly Simple Example}
+An overly simplified case is letting the ``apparatus'' be a piece of glass.  The atoms in the glass interact with the photon and cause a slow down inside of the material.  This results in a phase shift and a shifting interference pattern.  An interacting electron temporarily has an increase in energy, for a short time.  This increase in energy records the fact that the photon in on the top path.  We call this knowledge $\psi$.  The electron eventually passes the energy back to the electromagnetic field, forgetting $\psi$, with phase shift evidence $\rho$.
 
 \section{Acknowledgments}
 Thanks to Erik Ferragut, Dan Justice, Chris Pitstick, and Jasmine Ratchford for useful discussions.
