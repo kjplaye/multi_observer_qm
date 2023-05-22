@@ -230,9 +230,10 @@ A special case are two-leveled projections $P(\mathcal{O} | k) \in \{0,v\}$, for
 
 \subsection{Classical Correlation}
 We consider the uniform distribution on $S$.
-\[
+\begin{equation}
+\label{uniform_S}
 \frac{1}{2}(T \otimes H \otimes H) + \frac{1}{2}(T \otimes T \otimes T)
-\]
+\end{equation}
 We know the first coin is T, which we give to Eve.  She does nothing with her coin.
 
 We have $HH$ or $TT$ with equal probabilities for the second and third coins.  If we give the second coin to Alice and the third coin to Bob then we have a classical correlation.  If Bob finds that the third coin is $T$ then we know that Alice will also find that the second coin is $T$ (and similarly for $F$).
@@ -256,6 +257,8 @@ where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all 
 
 Up until now we have been treating the coins in only one frame of reference, say the lab technician Lena's frame.  But we are now faced with at least two other observers, Alice and Bob.  Each of these observers has a different subjective knowledge of the coins.  They independently learn through observation and adjust their knowledge accordingly.  Also, there is a compatibility condition that they have to be consistent if they get back together.
 
+Eve can observe the superposition of Allice and Bob's knowledge as (\ref{uniform_S}), and Lena can talk with Eve to also know the superposition (\ref{uniform_S}).  Then Eve could spy on Allice or Bob to learn the exact bit.  This could be done before Lena learns the bit.
+
 
 \begin{figure}[h]
 \centering
@@ -263,13 +266,10 @@ Up until now we have been treating the coins in only one frame of reference, say
 \caption{Various observers}
 \label{anb}
 \end{figure}
-We will come back to this in Section \ref{entangle}.
 
 \subsection{More on Bayesian Projections}
 \label{entropy}
-Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding to be presented in Section \ref{embed}.  This is because the embedded classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic statements.
-
-Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  The following result shows that the entropy always decreases
+Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  The following result shows that the information theoretic entropy always decreases under projection measurement.
 
 \begin{lemma}
 A nontrivial projection measurement decreases the entropy.
@@ -288,16 +288,16 @@ Where the equality occurs exactly when $p_i = 0$ for all $i \in X_1$ and $\sigma
 
 Measurement can be thought of as a context change which extends what we call the observer to include the measurement itself.  There is an energy gain in the observer system which corrosponds to the entropy lost in the knowledge.  This accounts for the newly stored information, the measurement.
 
-An overly simple example is pictured in Figure \ref{context} where we let a test particle be absorbed into the observer system.  Since the test particle is one wavelength away from the boundary, it can be regarded \a`a la Bekenstein to be a part of the system \cite{entropic}, \cite{bekenstein}, \cite{matterchannels}, \cite{thrust}.  This limits the change in energy and entropy to the internal degrees of freedom of the particle.   We do not need to account for the spatial or temporal degrees of freedom.
+An overly simple example is pictured in Figure \ref{context} where we let a test particle be absorbed into the observer system.  Since the test particle is one wavelength away from the boundary, it can be regarded \a`a la Bekenstein to be a part of the system \cite{entropic}, \cite{bekenstein}, \cite{matterchannels}, \cite{thrust}.  This limits the change in energy and entropy to the internal degrees of freedom of the particle.   This means that we do not need to account for the spatial or temporal degrees of freedom.
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1.3]{context_change.png}
-\caption{A test particle is one wavelength away from an observer system }
+\caption{A test particle is one wavelength away from an observer.  An external observer sees the internal observer entangled with the test particle.}
 \label{context}
 \end{figure}
 
-Other observers outside of this interaction will just see the observer and test particle becoming correlated.  Outside observers have to measure the system themselves to update their seperate knowledge.
+Other observers outside of this interaction will just see the observer and test particle becoming correlated (later entangled).  Outside observers have to measure the system themselves to update their seperate knowledge.
 
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
@@ -365,6 +365,11 @@ This measurement is identical to the classical Bayesian inference for zero phase
 \end{equation}
 which is an entangled Bell state.  In general, the correlated knowledge statements are exactly the zero phase entangled states.
 \end{proof}
+
+Figure \ref{context} diagrams how measurement between an observer and test particle become an entanglement from an outside observer's perspective.
+
+\subsection{Entropy Issues}
+Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding.  This is because the embedded classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic knowledge statements.
 
 \section{Overview of the Generalization}
 
