@@ -237,16 +237,6 @@ We know the first coin is T, which we give to Eve.  She does nothing with her co
 
 We have $HH$ or $TT$ with equal probabilities for the second and third coins.  If we give the second coin to Alice and the third coin to Bob then we have a classical correlation.  If Bob finds that the third coin is $T$ then we know that Alice will also find that the second coin is $T$ (and similarly for $F$).
 
-Up until now we have been treating the coins in only one frame of reference, say the lab technician Lena's frame.  But we are now faced with at least two other observers, Alice and Bob.  Each of these observers has a different subjective knowledge of the coins.  They independently learn through observation and adjust their knowledge accordingly.  Also, there is a compatibility condition that they have to be consistent if they get back together.
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=1.0]{allice_and_bob.png}
-\caption{Various observers}
-\label{anb}
-\end{figure}
-
 
 The observers all undergo Bayesian projections here. The separate knowledge of Alice and Bob is changing due to observation.
 
@@ -264,13 +254,22 @@ where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all 
 
 \end{definition}
 
-\subsection{Entropy of Bayesian Projections, Classical Measurement and Correlations}
+Up until now we have been treating the coins in only one frame of reference, say the lab technician Lena's frame.  But we are now faced with at least two other observers, Alice and Bob.  Each of these observers has a different subjective knowledge of the coins.  They independently learn through observation and adjust their knowledge accordingly.  Also, there is a compatibility condition that they have to be consistent if they get back together.
+
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.0]{allice_and_bob.png}
+\caption{Various observers}
+\label{anb}
+\end{figure}
+We will come back to this in Section \ref{entangle}.
+
+\subsection{More on Bayesian Projections}
 \label{entropy}
-Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding presented in section \ref{embed}.  This is because the embedded classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic statements.
+Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding to be presented in Section \ref{embed}.  This is because the embedded classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic statements.
 
-Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  Measurement is a context change which extends what we call the observer to include the measurement itself.  There is corresponding energy gain by the observer for the stored information.  For example, an ancillary bound electron might gain some energy depending on a measurement.  In this way, no net loss in entropy occurs, since the observer stores the measurement.
-
-Other observers outside of this interaction will just see the observer and ancillary environment becoming correlated.  Outside observers have to measure the system themselves to update their knowledge.
+Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  The following result shows that the entropy always decreases
 
 \begin{lemma}
 A nontrivial projection measurement decreases the entropy.
@@ -287,6 +286,19 @@ H(X) - H(\pi) &= \sum_{i \in X} - p_i \log(p_i) + \sum_{i \in X_2} \frac{p_i}{\s
 Where the equality occurs exactly when $p_i = 0$ for all $i \in X_1$ and $\sigma = 1$, which is when the projection is trivial. 
 \end{proof}
 
+Measurement can be thought of as a context change which extends what we call the observer to include the measurement itself.  There is an energy gain in the observer system which corrosponds to the entropy lost in the knowledge.  This accounts for the newly stored information, the measurement.
+
+An overly simple example is pictured in Figure \ref{context} where we let a test particle be absorbed into the observer system.  Since the test particle is one wavelength away from the boundary, it can be regarded \a`a la Bekenstein to be a part of the system \cite{entropic}, \cite{bekenstein}, \cite{matterchannels}, \cite{thrust}.  This limits the change in energy and entropy to the internal degrees of freedom of the particle.   We do not need to account for the spatial or temporal degrees of freedom.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=1.3]{context_change.png}
+\caption{A test particle is one wavelength away from an observer system }
+\label{context}
+\end{figure}
+
+Other observers outside of this interaction will just see the observer and test particle becoming correlated.  Outside observers have to measure the system themselves to update their seperate knowledge.
+
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
 \label{embed}
@@ -294,7 +306,7 @@ General quantum information\footnote{We are purposely leaving out density matric
 \[
    q_\mathit{0},\cdots,q_\mathit{7} \in \mathbb{C}
 \]
-with $\sum |q_i|^2 = 1$; compare to the positive real case in equation (\ref{peq}).  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  In the following subsections we will instrument all of the classical information theoretic constructs from section \ref{physicsstart} by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$.  This commutes with the Born rule (subject to normalization):
+with $\sum |q_i|^2 = 1$; compare to the positive real case in equation (\ref{peq}).  The Born rule is ostensibly a map $q_i \mapsto |q_i|^2 = p_i$ to classical probability.  In the following subsections we will instrument all of the classical information theoretic constructs from Section \ref{physicsstart} by restricting the phase\footnote{We consider negative values as 180 degrees out of phase, so zero phase means non-negative real.} of $q_i$ to be zero.  We can map backward $p_i \mapsto \sqrt{p_i} = q_i$.  This commutes with the Born rule (subject to normalization):
 
 {
 \renewcommand{\arraystretch}{0.1}
@@ -313,7 +325,7 @@ We illustrate zero phase Bayesian projection with an example.  For the running e
 \[
 \pi = \ket{TFF} \bra{TFF} + \ket{TTT} \bra{TTT}
 \]
-which we compare to section \ref{proj}.  Then let $A$ be any operator with an eigenspace, with eigenvalue $\lambda$, equal to the image of $\pi$.  An observation of $\lambda$ would correspond to an application of $\pi$, which is a Bayesian projection as in Definition \ref{projdef}.
+which we compare to Section \ref{proj}.  Then let $A$ be any operator with an eigenspace, with eigenvalue $\lambda$, equal to the image of $\pi$.  An observation of $\lambda$ would correspond to an application of $\pi$, which is a Bayesian projection as in Definition \ref{projdef}.
 \begin{theorem}
   The set inclusion $B \subseteq A$ yields a Bayesian Projection as in Definition \ref{projdef}.  Then a zero phase wavefunction instruments the classical measurement.
 \end{theorem}
@@ -341,6 +353,7 @@ This measurement is identical to the classical Bayesian inference for zero phase
 \end{proof}
 
 \subsection{Quantum Entanglement}
+\label{entangle}
 \begin{theorem}
   Classical correlation knowledge statements become entangled zero phase wavefunction.
 \end{theorem}
@@ -352,16 +365,6 @@ This measurement is identical to the classical Bayesian inference for zero phase
 \end{equation}
 which is an entangled Bell state.  In general, the correlated knowledge statements are exactly the zero phase entangled states.
 \end{proof}
-It may be useful to track the wavefunctions $\psi_A$, $\psi_B$, $\psi_E$, and $\psi_L$ for the four separate observers in Figure \ref{anb}.  Alice and Bob each get a qubit
-\[
-\begin{split}
-  \psi_A &= \frac{1}{\sqrt{2}}\ket{H} + \frac{1}{\sqrt{2}}\ket{T} \\
-  \psi_B &= \frac{1}{\sqrt{2}}\ket{H} + \frac{1}{\sqrt{2}}\ket{T} \\
-\end{split}
-\]
-which they look at separately.  Without loss of generality, $\psi_A$ and $\psi_B$ each collapse independently to $\ket{H}$ (or $\ket{T}$).  See section \ref{entropy} for a discussion on measurement and entanglement.  There we see that the outside observer Eve sees Alice and Bob becoming entangled with the qubits.  From Eve's point of view, the situation remains entangled with Alice and Bob's observations within $\psi_E$ in (\ref{bell}).
-
-Alice and Bob don't initially communicate, but when they do, they agree with each other.  Eve may communicate with Alice and Bob learning the bit.  Lena at some later time communicates with Alice, Bob, and Eve to learn the bit for herself in $\psi_L$.
 
 \section{Overview of the Generalization}
 
