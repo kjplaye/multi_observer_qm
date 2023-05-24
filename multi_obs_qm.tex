@@ -257,13 +257,13 @@ where $\eta_A \in \mathcal{K}(A)$ and $\eta_B \in \mathcal{K}(B)$.  We call all 
 
 Up until now we have been treating the coins in only one frame of reference, say the lab technician Lena's frame.  But we are now faced with at least two other observers, Alice and Bob.  Each of these observers has a different subjective knowledge of the coins.  They independently learn through observation and adjust their knowledge accordingly.  Also, there is a compatibility condition that they have to be consistent if they get back together.
 
-Eve can observe the superposition of Allice and Bob's knowledge as (\ref{uniform_S}), and Lena can talk with Eve to also know the superposition (\ref{uniform_S}).  Then Eve could spy on Allice or Bob to learn the exact bit.  This could be done before Lena learns the bit.
+Eve can observe the superposition of Alice and Bob's knowledge as (\ref{uniform_S}), and Lena can talk with Eve to also know the superposition (\ref{uniform_S}).  Then Eve could spy on Alice or Bob to learn the exact bit.  This could be done before Lena learns the bit.
 
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=1.0]{allice_and_bob.png}
-\caption{Various observers}
+\caption{Various observers and classical correlations}
 \label{anb}
 \end{figure}
 
@@ -286,7 +286,7 @@ H(X) - H(\pi) &= \sum_{i \in X} - p_i \log(p_i) + \sum_{i \in X_2} \frac{p_i}{\s
 Where the equality occurs exactly when $p_i = 0$ for all $i \in X_1$ and $\sigma = 1$, which is when the projection is trivial. 
 \end{proof}
 
-Measurement can be thought of as a context change which extends what we call the observer to include the measurement itself.  There is an energy gain in the observer system which corrosponds to the entropy lost in the knowledge.  This accounts for the newly stored information, the measurement.
+Measurement can be thought of as a context change which extends what we call the observer to include the measurement itself.  There is an energy gain in the observer system which corresponds to the entropy lost in the knowledge.  This energy increase accounts for the newly stored information, the measurement, a reversal of Landauer's principle \cite{landauer}.  If the energy is maintained inside of the observer system, then it will be considered as a mass increase.
 
 An overly simple example is pictured in Figure \ref{context} where we let a test particle be absorbed into the observer system.  Since the test particle is one wavelength away from the boundary, it can be regarded \a`a la Bekenstein to be a part of the system \cite{entropic}, \cite{bekenstein}, \cite{matterchannels}, \cite{thrust}.  This limits the change in energy and entropy to the internal degrees of freedom of the particle.   This means that we do not need to account for the spatial or temporal degrees of freedom.
 
@@ -297,7 +297,7 @@ An overly simple example is pictured in Figure \ref{context} where we let a test
 \label{context}
 \end{figure}
 
-Other observers outside of this interaction will just see the observer and test particle becoming correlated (later entangled).  Outside observers have to measure the system themselves to update their seperate knowledge.
+Other observers outside of the observation interaction will just see the observer and test particle becoming correlated (later entangled see Section \ref{entangle}).  These external observers have to measure the system themselves to update their own separate knowledge.
 
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
@@ -366,7 +366,7 @@ This measurement is identical to the classical Bayesian inference for zero phase
 which is an entangled Bell state.  In general, the correlated knowledge statements are exactly the zero phase entangled states.
 \end{proof}
 
-Figure \ref{context} diagrams how measurement between an observer and test particle become an entanglement from an outside observer's perspective.
+The classical correlations diagrammed in Figures \ref{context} and \ref{anb} become entanglements between observers and observed from an external observers' perspectives.
 
 \subsection{Entropy Issues}
 Von Neumann entropy is left out of this note since it does not reduce to classical entropy in the embedding.  This is because the embedded classical wavefunctions are pure states which all have zero Von Neumann entropy, but the classical entropy is nonzero for all non-basic knowledge statements.
