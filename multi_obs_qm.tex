@@ -119,7 +119,7 @@ A general knowledge statement $\eta \in \mathcal{K}(C)$ combines the basic state
 \label{peq}
   p_\mathit{0},\cdots,p_{\mathit{7}} \in \mathbb{R}_{\ge 0},
 \end{equation}
-so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that now (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $\mathcal{V}(C)$.
+so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that now equation (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $\mathcal{V}(C)$.
 
 
 Let $\mathcal{S}$ be the category of sets.  Let $\mathcal{W}$ be the category of real vectorspaces.  Then
@@ -222,7 +222,7 @@ Pulling out the Bayes factor we find that we just multiply by the likelihood and
 \end{equation}
 \begin{definition}[Bayesian Inference]
 \label{infdef}
-  A knowledge update of the form (\ref{inference}) is called a Bayesian inference.
+  A knowledge update of the form \ref{inference}) is called a Bayesian inference.
 \end{definition}
 \begin{corollary}
 A special case are two-leveled projections $P(\mathcal{O} | k) \in \{0,v\}$, for a fixed value $v$ determined by normalization.  These are the Bayesian projections from Definition \ref{projdef}.
@@ -262,14 +262,14 @@ Eve can observe the superposition of Alice and Bob's knowledge as (\ref{uniform_
 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=1.0]{allice_and_bob.png}
+\includegraphics[scale=1.0]{alice_and_bob.png}
 \caption{Various observers and classical correlations}
 \label{anb}
 \end{figure}
 
 \subsection{More on Bayesian Projections}
 \label{entropy}
-Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  The following result shows that the information theoretic entropy always decreases under projection measurement.
+Bayesian projections can be thought of as giving the observer some information and reducing the entropy of the knowledge statement by the same amount.  (The reduction of entropy is information.) The following result shows that the information theoretic entropy always decreases under projection measurement.
 
 \begin{lemma}
 A nontrivial projection measurement decreases the Shannon entropy.
@@ -288,16 +288,7 @@ Where the equality occurs exactly when $p_i = 0$ for all $i \in X_1$ and $\sigma
 
 Measurement can be thought of as a context change which extends what we call the observer to include the measurement itself.  There is an energy gain in the observer system which corresponds to the entropy lost in the knowledge.  This energy increase accounts for the newly stored information, the measurement, a reversal of Landauer's principle \cite{landauer}.  If the energy is stored and maintained inside of the observer system, then it will be considered as a mass increase.
 
-An overly simple example is pictured in Figure \ref{context} where we let a test particle be absorbed into the observer system.  Since the test particle is one wavelength away from the boundary, it can be regarded \a`a la Bekenstein to be a part of the system \cite{entropic}, \cite{bekenstein}, \cite{matterchannels}, \cite{thrust}.  This limits the change in energy and entropy to the internal degrees of freedom of the particle.   This means that we do not need to account for the spatial or temporal degrees of freedom.
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=1.3]{context_change.png}
-\caption{Consider a test particle  one wavelength away from an observer.  There is a shift in context as the particle transitions from being external to being observed internally.  An external observer sees the internal observer entangled with the test particle.  }
-\label{context}
-\end{figure}
-
-Other observers outside of the observation interaction will just see the observer and test particle becoming correlated (later entangled see Section \ref{entangle}).  These external observers have to measure the system themselves to update their own separate knowledge.
+External observers outside of the measurement interaction will just see the observer and observed becoming correlated (later entangled see Section \ref{entangle}).  These external observers have to measure the system themselves to update their own separate knowledge.
 
 \section{Quantum Information Theory}
 \subsection{Classical to Quantum Embedding}
