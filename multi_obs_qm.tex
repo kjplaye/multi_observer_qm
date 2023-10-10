@@ -1,7 +1,7 @@
 \documentclass[12pt,a4paper]{article}
 \usepackage[width=.75\textwidth]{caption}
 \usepackage{graphicx}
-\usepackage{authblk}
+%\usepackage{authblk}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage{braket}
@@ -9,6 +9,7 @@
 \usepackage{amssymb}
 \usepackage{amsthm}
 \usepackage{bbm}
+\usepackage{hyperref}
 %\usepackage{mathrsfs}
 \usepackage[mathscr]{euscript}
 \usepackage[top=2cm, bottom=2cm, left=2cm, right=2cm]{geometry}
@@ -28,6 +29,7 @@
 \newtheorem{corollary}{Corollary}[theorem]
 \newtheorem{lemma}[theorem]{Lemma}
 
+
 \setlength{\epigraphwidth}{0.8\textwidth}
 
 \pagestyle{fancy}
@@ -35,7 +37,25 @@
 
 %title and author details
 \title{Multi-Observer Quantum Mechanics from Classical Bayesian Inference}
-\author[1]{Kevin Player\footnote{kjplaye@gmail.com}}
+
+
+
+\author{
+  Kevin Player\footnote{Software Engineering Institute, Carnegie Mellon University, Pittsburgh, Pennsylvania 15213}\\
+   \and
+   Daniel Justice\footnotemark[1]
+}
+
+
+%\author{Gopal \setcounter{savecntr}{\value{footnote}}\thanks{XYZ University} ,
+%Someone else \thanks{ABC University} ,
+%Another \setcounter{restorecntr}{\value{footnote}}%
+%  \setcounter{footnote}{\value{savecntr}}\footnotemark% Print footnotemark
+%  \setcounter{footnote}{\value{restorecntr}} ,
+%Last author \thanks{IJK College}}
+
+%\author{Gopal\thanks{XYZ University} \and Someone else\thanks{ABC University} \and Another\footnotemark[1] \and Last author\thanks{IJK College}}
+
 
 \maketitle
 
