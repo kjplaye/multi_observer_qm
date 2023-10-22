@@ -62,19 +62,19 @@
 
 \epigraph{Solipsism may be logically consistent with present Quantum Mechanics, Monism in the sense of Materialism is not.}{Eugene Wigner}
 
-\abstract{We present several quintessential quantum ideas and shed them in a classical light.  We argue how quantum information theory is a generalization of classical information theory in a nonstandard way (without density matrices).  In fact, we show how classical information theory can be embedded in quantum information theory using zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer extension of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
+\abstract{We present several quintessential quantum ideas and shed them in a classical light.  We argue how quantum information theory is a generalization of classical information theory.  In fact, we show how classical information theory can be embedded in quantum information theory using zero phase wavefunctions.  We employ this embedding to motivate a new multi-observer extension of quantum mechanics. Finally, we outline an experiment to test the existence of our multi-observer theory.}
 
 \section{Mathematical Framework}
 This section lays out a mathematical foundation for talking about information using an epistemic treatment. The arguments are rather technical and are not required for an appreciation of the main results.  The reader is invited to skip ahead to Section \ref{physicsstart} during a first read through.
 
-Lets start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to $n$-bits or any finite set.
+We will start with a 3-bit example, where each bit is realized by coins which are either heads (H) or tails (T).  With these 3 coins in hand, we conduct some thought experiments.  The ideas that we encounter all extend without loss of generality to $n$-bits or any finite set.
 
 \subsection{Tribits and Notation}
 Let us describe the situation once we throw the 3 coins.  We move freely between binary bits ($0$ and $1$) and coin states ($H$ and $T$) mapping between them $H \leftrightarrow 0$ and $T \leftrightarrow 1$. Let
 \[
 x_i \in \{H,T\}
 \]
-be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  Let $C$ be the set of 8 possible tribits
+be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote the resulting sequence or tribit.  There are 8 possible unique tribits and we will refer to them with the italic integers $\mathit{0}$ through $\mathit{7}$ in binary order.  Let $C$ be the set of 8 possible tribits
 \[
  C = \{HHH,HHT,\cdots,TTH, TTT\} = \{\mathit{0},\cdots,\mathit{7}\}
 \]
@@ -83,17 +83,17 @@ be the outcome for the throws $i$ = $1,2,3$ and let $x = (x_1, x_2, x_3)$ denote
 For any set $A$, let $\mathcal{K}(A)$ be the set of knowledge statements about $A$.  Motivating by example, we construct and present knowledge statements $\mathcal{K}(C)$ for $C$.  We do this by repeatedly applying the following simple postulates.
 \begin{postulate}
 \label{rule1}
-For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call this a basic statement.
+For any tribit $x \in C$ we have the knowledge statement $b_x \in \mathcal{K}(C)$, that says we know $x$ with certainty or probability 1.  We call each $b_x$ a basic statement.
 \end{postulate}
-There are 8 tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$.  Each statement is a separate kind of knowledge about the tribit.  A physical constraint is that an observer can only hold one knowledge statement at any given time.  In contrast, a knowledge statement itself may represent more than one possibility simultaneously, as is the case in the next Postulate.
+There are 8 unique tribits, so there are 8 basic statements, $b_\mathit{0},\cdots,b_\mathit{7}$, which express maximal knowledge often post observation.  A physical constraint is that an observer can only hold one knowledge statement at any given time.  In contrast, a knowledge statement itself may represent more than one possibility simultaneously, as is the case in the next Postulate.
 \begin{postulate}
- \label{rule2}
-  A formal superposition can be made for any statements $s_1 \in \mathcal{K}(C)$ and $s_2 \in \mathcal{K}(C)$ and $\alpha \in [0,1]$
+  \label{rule2}
+  Using two knowledge statements $s_1 \in \mathcal{K}(C)$ and $s_2 \in \mathcal{K}(C)$ and $\alpha \in [0,1]$ we can create a new knowledge statement which is a formal superposition
   \begin{equation}
   \label{super}
   \text{super}_\alpha(s_1,s_2) = \alpha s_1 + (1 -\alpha) s_2.
   \end{equation}
-This formal combination means to take statement $s_1$ with probability $\alpha$ and statement $s_2$ with probability $(1-\alpha)$; This is a new statement in $ \mathcal{K}(C)$.
+This formal convex combination means statement $s_1$ is true with probability $\alpha$ and statement $s_2$ is true with probability $(1-\alpha)$; This is a new statement in $ \mathcal{K}(C)$.
 \end{postulate}
 
 \subsection{Distributions on the Ensemble}
@@ -139,7 +139,7 @@ A general knowledge statement $\eta \in \mathcal{K}(C)$ combines the basic state
 \label{peq}
   p_\mathit{0},\cdots,p_{\mathit{7}} \in \mathbb{R}_{\ge 0},
 \end{equation}
-so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that now equation (\ref{super}) is more than just a formal relation since it actually holds linearly inside of $\mathcal{V}(C)$.
+so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that now equation (\ref{super}) is more than just a formal relation since it actually holds doing math linearly inside of $\mathcal{V}(C)$.
 
 
 Let $\mathcal{S}$ be the category of sets.  Let $\mathcal{W}$ be the category of real vectorspaces.  Then
