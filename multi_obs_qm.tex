@@ -139,7 +139,7 @@ A general knowledge statement $\eta \in \mathcal{K}(C)$ combines the basic state
 \label{peq}
   p_\mathit{0},\cdots,p_{\mathit{7}} \in \mathbb{R}_{\ge 0},
 \end{equation}
-so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that now equation (\ref{super}) is more than just a formal relation since it actually holds doing math linearly inside of $\mathcal{V}(C)$.
+so that $\eta = \sum p_i b_i$.  To be a statistical distribution we also need it to be normalized with $\sum p_i = 1$.  Note that now equation (\ref{super}) is more than just a formal relation since the arithmetic actually holds linearly inside of $\mathcal{V}(C)$.
 
 
 Let $\mathcal{S}$ be the category of sets.  Let $\mathcal{W}$ be the category of real vectorspaces.  Then
@@ -170,9 +170,12 @@ We linearly extend this to the map $\mathcal{V}(g):\mathcal{V}(B) \hookrightarro
   \item $d \in Im(s \circ r)$
   \end{enumerate}
 
+ 
 \begin{figure}[h]
 \centering
-\includegraphics[scale=1.0]{functor.png}
+\includegraphics[scale=1.0]{functor1.png}
+\hspace{1.5cm}
+\includegraphics[scale=0.8]{functor2.png}
 %\caption{Three cases for $s \circ r$}
 \end{figure}
   
@@ -181,11 +184,11 @@ We linearly extend this to the map $\mathcal{V}(g):\mathcal{V}(B) \hookrightarro
   This demonstrates the composition property of the functor, $\mathcal{V}(s \circ r) = \mathcal{V}(r) \circ \mathcal{V}(s)$.
 \end{proof}
 
-Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $W$.  The 8 dimensional space $W ^ {\otimes 3}$ has a basis with vectors like $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $W^{\otimes 3}$ by linearly extending
+Each coin corresponds to a 2 dimensional space $\mathcal{V}(\{H,T\})$ which we will call $W$.  The 8 dimensional space $W ^ {\otimes 3}$ has a basis with vectors of the form $T \otimes H \otimes T$.  Then $\mathcal{V}(C)$, is identified with the tensor power $W^{\otimes 3}$ by linearly extending
 \[
 (x_1,x_2,x_3) \mapsto x_1 \otimes x_2 \otimes x_3.
 \]
-
+Let $\mathbbm{1}_X$ notate $\sum_{x \in X} x$.
 \begin{lemma}
 \label{product}
   $\mathcal{V}(A \times B) = \mathcal{V}(A) \otimes \mathcal{V}(B)$ and the $n$-bit knowledge space $\mathcal{V}(\mathbb{Z}_2^n)$ is $W ^ {\otimes n} \cong \mathbb{R}^{2^n}$.  $\mathcal{V}(A \times B \twoheadrightarrow A)$ identifies $\mathcal{V}(A)$ with $\mathcal{V}(A) \otimes \mathbbm{1}_B$.  The same is true for $B$ and $\mathbbm{1}_A$.
